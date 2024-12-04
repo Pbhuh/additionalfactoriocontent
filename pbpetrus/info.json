@@ -1,0 +1,12 @@
+{
+  "name": "pbpetrus",
+  "version": "0.0.1",
+  "title": "Petrus Test Mod",
+  "author": "PBPetrus",
+  "factorio_version": "2.0",
+	"dependencies": [
+		"base >= 2.0.0",
+		"space-age >= 2.0.0"
+	],
+  "description": "Test mod to sort out features and additions."
+}
