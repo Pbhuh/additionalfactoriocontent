@@ -423,7 +423,7 @@ data:extend(
     {
       mining_particle = "wooden-particle",
       mining_time = 0.5,
-      results = {{type = "item", name = "boompuff-powder", amount = 50}},
+      results = {{type = "item", name = "boompuff", amount = 50}},
       mining_trigger =
       {
         {
@@ -843,8 +843,8 @@ data:extend(
     }
   },
   {
-    type = "tree",
-    name = "teflilly", -- plastic
+    type = "plant", --todo, move to feronia
+    name = "teflilly-plant", -- plastic
     icon = "__space-age__/graphics/icons/teflilly.png",
     flags = plant_flags,
     minable =
@@ -870,7 +870,9 @@ data:extend(
         }
       }
     },
-    mining_sound = sound_variations("__space-age__/sound/mining/axe-mining-teflilly", 5, 0.5),
+    growth_ticks = 5 * minutes,
+    harvest_emissions = plant_harvest_emissions,
+	mining_sound = sound_variations("__space-age__/sound/mining/axe-mining-teflilly", 5, 0.5),
     mined_sound = sound_variations("__space-age__/sound/mining/mined-teflilly", 5, 0.5),
     emissions_per_second = plant_emissions,
     max_health = 50,
@@ -886,7 +888,8 @@ data:extend(
       control = "gleba_plants",
       order = "a[tree]-b[forest]-g",
       probability_expression = "gleba_teflilly_region",
-      richness_expression = "random_penalty_at(3, 1)"
+      richness_expression = "random_penalty_at(3, 1)",
+      tile_restriction = {"natural-teflilly-soil", "artificial-teflilly-soil", "overgrowth-teflilly-soil"}
     },
     variations = gleba_tree_variations("teflilly"),
     colors = {
@@ -1193,8 +1196,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "spoilage", amount = 6},
-        {type = "item", name = "wood", amount = 4}
+        {type = "item", name = "boompuff", amount = 50}
       },
       mining_trigger =
       {

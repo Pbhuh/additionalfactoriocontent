@@ -123,6 +123,10 @@ data:extend(
       {
         type = "unlock-recipe",
         recipe = "boompuff-processing"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "potassium-bacteria"
       }
     },
     prerequisites = {"agriculture"},
@@ -179,6 +183,14 @@ data:extend(
       {
         type = "unlock-recipe",
         recipe = "pentapod-egg"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ethanol-from-nutrients"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "sulfur-from-boompuff"
       }
     },
     prerequisites = {"yumako", "jellynut", "boompuff" },
@@ -233,6 +245,10 @@ data:extend(
       {
         type = "unlock-recipe",
         recipe = "iron-bacteria-cultivation"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "potassium-bacteria-cultivation"
       }
     },
     prerequisites = {"bioflux"},
@@ -258,17 +274,13 @@ data:extend(
         type = "unlock-recipe",
         recipe = "rocket-fuel-from-jelly"
       },
-      {
-        type = "unlock-recipe",
-        recipe = "biosulfur"
-      },
+      --{
+      --  type = "unlock-recipe",
+      --  recipe = "biosulfur"
+      --},
       {
         type = "unlock-recipe",
         recipe = "biolubricant"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "ethanol-from-nutrients"
       }
     },
     prerequisites = {"bioflux"},
@@ -277,6 +289,34 @@ data:extend(
       type = "craft-item",
       item = "bioflux",
       count = 25
+    }
+  },
+
+  {
+    type = "technology",
+    name = "gleba-explosives",
+    icon = "__base__/graphics/technology/explosives.png",
+    icon_size = 256,
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "explosives-from-niter"
+      }
+	},
+    prerequisites = {"agricultural-science-pack"},
+    unit =
+    {
+      count = 500,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"space-science-pack", 1},
+        {"agricultural-science-pack", 1}
+      },
+      time = 60
     }
   }
 

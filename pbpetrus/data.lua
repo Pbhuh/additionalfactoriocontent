@@ -1,11 +1,12 @@
 --data.lua
 
---require("prototypes.item-groups")
+require("prototypes.item-groups")
 require("prototypes.fluid")
 require("prototypes.item")
 require("prototypes.recipe") 
 require("prototypes.technology") 
 require("prototypes.tile.tiles-gleba")
+require("prototypes.tile.tiles-feronia")
 require("prototypes.tile.tiles")
 require("prototypes.entity.resources")
 require("prototypes.particles")

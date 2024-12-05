@@ -118,6 +118,59 @@ data:extend(
     spoil_ticks = 1 * minute,
     spoil_result = "potassium-nitrate"
   },
+  {
+    type = "ammo",
+    name = "lead-core-magazine",
+    icon = "__base__/graphics/icons/firearm-magazine.png",
+    ammo_category = "bullet",
+    ammo_type =
+    {
+      action =
+      {
+        {
+          type = "direct",
+          action_delivery =
+          {
+            {
+              type = "instant",
+              source_effects =
+              {
+                {
+                  type = "create-explosion",
+                  entity_name = "explosion-gunshot"
+                }
+              },
+              target_effects =
+              {
+                {
+                  type = "create-entity",
+                  entity_name = "explosion-hit",
+                  offsets = {{0, 1}},
+                  offset_deviation = {{-0.5, -0.5}, {0.5, 0.5}}
+                },
+                {
+                  type = "damage",
+                  damage = {amount = 5, type = "physical"}
+                },
+                {
+                  type = "activate-impact",
+                  deliver_category = "bullet"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    magazine_size = 10,
+    subgroup = "ammo",
+    order = "a[basic-clips]-b[lead-core-magazine]",
+    inventory_move_sound = item_sounds.ammo_small_inventory_move,
+    pick_sound = item_sounds.ammo_small_inventory_pickup,
+    drop_sound = item_sounds.ammo_small_inventory_move,
+    stack_size = 100,
+    weight = 10*kg
+  },
   --{
   --  type = "item",
   --  name = "micro-semi-conductor",
@@ -146,14 +199,14 @@ data:extend(
   --},
   {
     type = "capsule",
-    name = "boompuff-powder",
-    icon = "__pbpetrus__/graphics/icons/boompuff-powder.png",
+    name = "boompuff",
+    icon = "__pbpetrus__/graphics/icons/boompuff-bulb.png",
     pictures =
     {
-      { size = 64, filename = "__pbpetrus__/graphics/icons/boompuff-powder.png",   scale = 0.5, mipmap_count = 4 },
-      { size = 64, filename = "__pbpetrus__/graphics/icons/boompuff-powder.png", scale = 0.5, mipmap_count = 4 },
-      { size = 64, filename = "__pbpetrus__/graphics/icons/boompuff-powder.png", scale = 0.5, mipmap_count = 4 },
-      { size = 64, filename = "__pbpetrus__/graphics/icons/boompuff-powder.png", scale = 0.5, mipmap_count = 4 }
+      { size = 64, filename = "__pbpetrus__/graphics/icons/boompuff-bulb.png",   scale = 0.5, mipmap_count = 4 },
+      { size = 64, filename = "__pbpetrus__/graphics/icons/boompuff-bulb.png", scale = 0.5, mipmap_count = 4 },
+      { size = 64, filename = "__pbpetrus__/graphics/icons/boompuff-bulb.png", scale = 0.5, mipmap_count = 4 },
+      { size = 64, filename = "__pbpetrus__/graphics/icons/boompuff-bulb.png", scale = 0.5, mipmap_count = 4 }
     },
     subgroup = "agriculture-processes",
     order = "b[agriculture]-c[boompuff]",
@@ -169,6 +222,24 @@ data:extend(
     spoil_result = "spoilage",
     capsule_action = item_effects.yumako_regen
 	--todo replace regen with explosiveness
+  },
+  {
+    type = "capsule",
+    name = "boompuff-powder",
+    icon = "__pbpetrus__/graphics/icons/boompuff-powder.png",
+    subgroup = "agriculture-products",
+    order = "a[organic-processing]-d[boompuff-powder]",
+    inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+    pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+    drop_sound = space_age_item_sounds.agriculture_inventory_move,
+    fuel_category = "chemical",
+    fuel_value = "1MJ",
+    stack_size = 100,
+    default_import_location = "gleba",
+    spoil_ticks = 3 * minute,
+    spoil_result = "spoilage",
+    weight = 0.5 * kg,
+    capsule_action = item_effects.yumako_regen
   },
   {
     type = "item",
@@ -201,7 +272,7 @@ data:extend(
     name = "artificial-boompuff-soil",
     icon = "__pbpetrus__/graphics/icons/artificial-boompuff-soil.png",
     subgroup = "terrain",
-    order = "c[landfill]-f[artificial-boompuff-soil]",
+    order = "c[landfill]-e[artificial-boompuff-soil]",
     inventory_move_sound = item_sounds.landfill_inventory_move,
     pick_sound = item_sounds.landfill_inventory_pickup,
     drop_sound = item_sounds.landfill_inventory_move,
@@ -211,8 +282,15 @@ data:extend(
     {
       result = "artificial-boompuff-soil",
       condition_size = 1,
-      condition = {layers={ground_tile=true}},
-      tile_condition = {"midland-yellow-crust"}
+      condition = {layers={}},
+      tile_condition = {
+		--todo, check what limits are desirable for natural		
+		"midland-yellow-crust",
+		"midland-yellow-crust-2",
+		"midland-yellow-crust-3",
+		"midland-yellow-crust-4",
+		
+		}
     }
   },
   {
@@ -220,7 +298,7 @@ data:extend(
     name = "overgrowth-boompuff-soil",
     icon = "__pbpetrus__/graphics/icons/overgrowth-boompuff-soil.png",
     subgroup = "terrain",
-    order = "c[landfill]-f[overgrowth-boompuff-soil]",
+    order = "c[landfill]-e[overgrowth-boompuff-soil]",
     inventory_move_sound = item_sounds.landfill_inventory_move,
     pick_sound = item_sounds.landfill_inventory_pickup,
     drop_sound = item_sounds.landfill_inventory_move,
@@ -232,7 +310,11 @@ data:extend(
       condition_size = 1,
       condition = {layers={}},
       tile_condition = {
-        "midland-yellow-crust",
+		"midland-yellow-crust",
+		"midland-yellow-crust-2",
+		"midland-yellow-crust-3",
+		"midland-yellow-crust-4",
+		--todo, check what limits are desirable for overgrowth
         "lowland-olive-blubber",
         "lowland-olive-blubber-2",
         "lowland-olive-blubber-3",
@@ -240,6 +322,74 @@ data:extend(
         "lowland-pale-green"
       }
     }
+  },
+  {
+    type = "item",
+    name = "artificial-teflilly-soil",
+    icon = "__pbpetrus__/graphics/icons/artificial-teflilly-soil.png",
+    subgroup = "terrain",
+    order = "c[landfill]-e[artificial-teflilly-soil]",
+    inventory_move_sound = item_sounds.landfill_inventory_move,
+    pick_sound = item_sounds.landfill_inventory_pickup,
+    drop_sound = item_sounds.landfill_inventory_move,
+    stack_size = 100,
+    default_import_location = "gleba",
+    place_as_tile =
+    {
+      result = "artificial-teflilly-soil",
+      condition_size = 1,
+      condition = {layers={}},
+      tile_condition = {
+		--todo add tiles for feronia		
+		}
+    }
+  },
+  {
+    type = "item",
+    name = "overgrowth-teflilly-soil",
+    icon = "__pbpetrus__/graphics/icons/overgrowth-teflilly-soil.png",
+    subgroup = "terrain",
+    order = "c[landfill]-e[overgrowth-teflilly-soil]",
+    inventory_move_sound = item_sounds.landfill_inventory_move,
+    pick_sound = item_sounds.landfill_inventory_pickup,
+    drop_sound = item_sounds.landfill_inventory_move,
+    stack_size = 100,
+    default_import_location = "gleba",
+    place_as_tile =
+    {
+      result = "overgrowth-teflilly-soil",
+      condition_size = 1,
+      condition = {layers={}},
+      tile_condition = {
+		--todo add tiles for feronia
+      }
+    }
+  },
+  {
+    type = "item",
+    name = "teflilly-seed",
+    localised_name = {"item-name.teflilly-seed"},
+    localised_description = {"item-description.teflilly-seed"},
+    icon = "__pbpetrus__/graphics/icons/teflilly-seed.png",
+    pictures =
+    {
+      { size = 64, filename = "__pbpetrus__/graphics/icons/teflilly-seed.png", scale = 0.5, mipmap_count = 4 },
+      { size = 64, filename = "__pbpetrus__/graphics/icons/teflilly-seed.png", scale = 0.5, mipmap_count = 4 },
+      { size = 64, filename = "__pbpetrus__/graphics/icons/teflilly-seed.png", scale = 0.5, mipmap_count = 4 },
+      { size = 64, filename = "__pbpetrus__/graphics/icons/teflilly-seed.png", scale = 0.5, mipmap_count = 4 },
+    },
+    subgroup = "feronia-agriculture",
+    order = "a[feronia-seeds]-d[teflilly-seed]",
+    plant_result = "teflilly-plant",
+    place_result = "teflilly-plant",
+    inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+    pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+    drop_sound = space_age_item_sounds.agriculture_inventory_move,
+    stack_size = 10,
+    default_import_location = "feronia",
+    weight = 10 * kg,
+    fuel_category = "chemical",
+    fuel_value = "4MJ"
   },
 })
 

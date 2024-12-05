@@ -13,6 +13,11 @@ data.raw["recipe"]["battery"].ingredients =
       {type = "fluid", name = "sulfuric-acid", amount = 20},
       {type = "item", name = "lead-plate", amount = 2}
 }
+data.raw["recipe"]["shotgun-shell"].ingredients = 
+{
+      {type = "item", name = "copper-plate", amount = 2},
+      {type = "item", name = "lead-plate", amount = 2}
+}
 -- Amyz Changes
 -- Productivity 3 changes
 --data.raw["recipe"]["productivity-module-3"].ingredients = 

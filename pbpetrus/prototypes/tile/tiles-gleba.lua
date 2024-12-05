@@ -374,13 +374,14 @@ data:extend({
     scorch_mark_color = {r = 0.329, g = 0.242*2, b = 0.177, a = 1.000}
   },
   {
-    type = "tile", --todo, generate on gleba
+    type = "tile", --todo, generate on gleba, possibly change color
     name = "natural-boompuff-soil",
     order = "d[boompuff]-c[natural-boompuff-soil]",
     subgroup = "gleba-tiles",
     collision_mask = tile_collision_masks.ground(),
-    autoplace = {probability_expression = "gleba_fertile_solid * 50000 - 40000 - gleba_biome_mask_green * 1000000"},
-    layer_group = "ground-natural",
+    --autoplace = {probability_expression = "gleba_fertile_solid * 50000 - 40000 - gleba_biome_mask_green * 1000000"},
+    autoplace = {probability_expression = "gleba_midland * gleba_select(gleba_aux, 0.65, 1, 0.1, 0, 1)"},
+	layer_group = "ground-natural",
     layer = gleba_tile_offset + 20,
     searchable = true,
 
@@ -398,9 +399,9 @@ data:extend({
         [4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
       }
     ),
-
-    walking_sound = semi_wet_sound,
-    landing_steps_sound = tile_sounds.landing.semi_wet,
+	
+	walking_sound = dry_rock_sound,
+    landing_steps_sound = tile_sounds.landing.rock,
     build_sound = data.raw["tile"]["landfill"].build_sound,
     map_color={185, 166, 5},
     scorch_mark_color = {r = 0.329, g = 0.242*2, b = 0.177, a = 1.000}
