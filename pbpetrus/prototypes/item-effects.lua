@@ -11,6 +11,8 @@ local jelly_duration = 12 * second
 local jelly_cooldown = 16 * second
 local jelly_speed_modifier = 1.5
 
+local boompuff_cooldown = 20 * second
+
 local bioflux_duration = 16 * second
 local bioflux_cooldown = 16 * second
 
@@ -313,11 +315,67 @@ local make_speed_regen_capsule_effect = function()
   }
 end
 
+local make_boom_capsule_effect = function()
+  return
+  {
+    type = "use-on-self",
+    attack_parameters =
+    {
+      type = "projectile",
+      activation_type = "consume",
+      ammo_category = "capsule",
+      cooldown = boompuff_cooldown,
+      range = 0,
+      ammo_type =
+      {
+        target_type = "position",
+        action =
+        {
+          type = "direct",
+          action_delivery =
+		  {
+		  	type = "projectile",
+		  	projectile = "boompuff-seed",
+		  	direction_deviation = 0.6,
+		  	starting_speed = 0.1,
+		  	starting_speed_deviation = 0.08
+		  }
+        }
+      }
+    }
+  }
+end
+
+--local make_boom_capsule_effect_desire = function()
+--  return
+--  {
+--    type = "explosion",
+--    animations = table.deepcopy(data.raw.explosion.explosion.animations),
+--    sound = table.deepcopy(data.raw.explosion.explosion.sound),
+--    created_effect =
+--    { -- use a projectile to delay the damage or a whole area detonates in a few ticks
+--      type = "cluster",
+--      cluster_count = 5,
+--      distance = 3,
+--      distance_deviation = 2,
+--      action_delivery =
+--      {
+--        type = "projectile",
+--        projectile = "boompuff-seed",
+--        direction_deviation = 0.6,
+--        starting_speed = 0.1,
+--        starting_speed_deviation = 0.08
+--      }
+--    }
+--  }
+--end
+
 item_effects =
 {
   data = make_sticker_data(),
   yumako_regen = make_heal_capsule_effect(),
   jellynut_speed = make_speed_capsule_effect(),
+  boompuff_boom = make_boom_capsule_effect(),
   bioflux_speed_and_regen = make_speed_regen_capsule_effect(),
 }
 return item_effects

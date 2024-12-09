@@ -1,5 +1,29 @@
 local item_sounds = require("__base__.prototypes.item_sounds")
 local space_age_item_sounds = require("__space-age__.prototypes.item_sounds")
+local item_effects = require("__pbpetrus__.prototypes.item-effects")
+
+data:extend(
+{
+  {
+    type = "item",
+    name = "titanium-platform-foundation",
+    icon = "__pbpetrus__/graphics/icons/titanium-platform-foundation.png",
+    subgroup = "space-platform",
+    order = "a[space-platform-foundation]",
+    inventory_move_sound = item_sounds.metal_large_inventory_move,
+    pick_sound = item_sounds.metal_large_inventory_pickup,
+    drop_sound = item_sounds.metal_large_inventory_move,
+    stack_size = 100,
+    weight = 10*kg,
+    place_as_tile =
+    {
+      result = "titanium-platform-foundation",
+      condition_size = 1,
+      condition = {layers={empty_space=true}},
+      invert = true,
+    }
+  },
+})
 
 data:extend(
 {
@@ -21,25 +45,6 @@ data:extend(
     factoriopedia_durability_description_key = "description.factoriopedia-science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value",
     random_tint_color = item_tints.bluish_science
-  },
-  {
-    type = "item",
-    name = "titanium-platform-foundation",
-    icon = "__pbpetrus__/graphics/icons/titanium-platform-foundation.png",
-    subgroup = "space-platform",
-    order = "a[space-platform-foundation]",
-    inventory_move_sound = item_sounds.metal_large_inventory_move,
-    pick_sound = item_sounds.metal_large_inventory_pickup,
-    drop_sound = item_sounds.metal_large_inventory_move,
-    stack_size = 100,
-    weight = 10*kg,
-    place_as_tile =
-    {
-      result = "titanium-platform-foundation",
-      condition_size = 1,
-      condition = {layers={empty_space=true}},
-      invert = true,
-    }
   },
   {
     type = "item",
@@ -67,7 +72,7 @@ data:extend(
     icon = "__pbpetrus__/graphics/icons/lead-plate.png",
     subgroup = "raw-material",
     color_hint = { text = "I" },
-    order = "a[smelting]-c[lead-plate]",
+    order = "a[smelting]-d[lead-plate]",
     inventory_move_sound = item_sounds.metal_small_inventory_move,
     pick_sound = item_sounds.metal_small_inventory_pickup,
     drop_sound = item_sounds.metal_small_inventory_move,
@@ -76,52 +81,9 @@ data:extend(
     weight = 5*kg
   },
   {
-    type = "item",
-    name = "potassium-nitrate",
-    icon = "__pbpetrus__/graphics/icons/potassium-nitrate.png",
-    pictures =
-    {
-      {size = 64, filename = "__pbpetrus__/graphics/icons/potassium-nitrate.png", scale = 0.5, mipmap_count = 4},
-      {size = 64, filename = "__pbpetrus__/graphics/icons/potassium-nitrate.png", scale = 0.5, mipmap_count = 4},
-      {size = 64, filename = "__pbpetrus__/graphics/icons/potassium-nitrate.png", scale = 0.5, mipmap_count = 4},
-      {size = 64, filename = "__pbpetrus__/graphics/icons/potassium-nitrate.png", scale = 0.5, mipmap_count = 4}
-    },
-    subgroup = "raw-resource",
-    color_hint = { text = "I" },
-    subgroup = "agriculture-processes",
-    order = "b[agriculture]-d[potassium-nitrate]",
-    inventory_move_sound = item_sounds.resource_inventory_move,
-    pick_sound = item_sounds.resource_inventory_pickup,
-    drop_sound = item_sounds.resource_inventory_move,
-    stack_size = 50,
-    weight = 2 * kg
-  },
-  {
-    type = "item",
-    name = "potassium-bacteria",
-    icon = "__pbpetrus__/graphics/icons/potassium-bacteria.png",
-    pictures =
-    {
-      { size = 64, filename = "__pbpetrus__/graphics/icons/potassium-bacteria.png", scale = 0.5, mipmap_count = 4 },
-      { size = 64, filename = "__pbpetrus__/graphics/icons/potassium-bacteria.png", scale = 0.5, mipmap_count = 4 },
-      { size = 64, filename = "__pbpetrus__/graphics/icons/potassium-bacteria.png", scale = 0.5, mipmap_count = 4 },
-      { size = 64, filename = "__pbpetrus__/graphics/icons/potassium-bacteria.png", scale = 0.5, mipmap_count = 4 },
-    },
-    subgroup = "agriculture-processes",
-    order = "b[agriculture]-d[potassium-bacteria]",
-    inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
-    pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
-    drop_sound = space_age_item_sounds.agriculture_inventory_move,
-    stack_size = 50,
-    default_import_location = "gleba",
-    weight = 1 * kg,
-    spoil_ticks = 1 * minute,
-    spoil_result = "potassium-nitrate"
-  },
-  {
     type = "ammo",
     name = "lead-core-magazine",
-    icon = "__base__/graphics/icons/firearm-magazine.png",
+    icon = "__pbpetrus__/graphics/icons/lead-core-magazine.png",
     ammo_category = "bullet",
     ammo_type =
     {
@@ -197,6 +159,54 @@ data:extend(
   --  stack_size = 100,
   --  ingredient_to_weight_coefficient = 0.25
   --},
+  
+})
+
+data:extend(
+{
+  {
+    type = "item",
+    name = "potassium-nitrate",
+    icon = "__pbpetrus__/graphics/icons/potassium-nitrate.png",
+    pictures =
+    {
+      {size = 64, filename = "__pbpetrus__/graphics/icons/potassium-nitrate.png", scale = 0.5, mipmap_count = 4},
+      {size = 64, filename = "__pbpetrus__/graphics/icons/potassium-nitrate.png", scale = 0.5, mipmap_count = 4},
+      {size = 64, filename = "__pbpetrus__/graphics/icons/potassium-nitrate.png", scale = 0.5, mipmap_count = 4},
+      {size = 64, filename = "__pbpetrus__/graphics/icons/potassium-nitrate.png", scale = 0.5, mipmap_count = 4}
+    },
+    subgroup = "raw-resource",
+    color_hint = { text = "I" },
+    subgroup = "agriculture-products",
+    order = "a[organic-products]-e[potassium-nitrate]",
+    inventory_move_sound = item_sounds.resource_inventory_move,
+    pick_sound = item_sounds.resource_inventory_pickup,
+    drop_sound = item_sounds.resource_inventory_move,
+    stack_size = 50,
+    weight = 2 * kg
+  },
+  {
+    type = "item",
+    name = "potassium-bacteria",
+    icon = "__pbpetrus__/graphics/icons/potassium-bacteria.png",
+    pictures =
+    {
+      { size = 64, filename = "__pbpetrus__/graphics/icons/potassium-bacteria.png", scale = 0.5, mipmap_count = 4 },
+      { size = 64, filename = "__pbpetrus__/graphics/icons/potassium-bacteria.png", scale = 0.5, mipmap_count = 4 },
+      { size = 64, filename = "__pbpetrus__/graphics/icons/potassium-bacteria.png", scale = 0.5, mipmap_count = 4 },
+      { size = 64, filename = "__pbpetrus__/graphics/icons/potassium-bacteria.png", scale = 0.5, mipmap_count = 4 },
+    },
+    subgroup = "agriculture-processes",
+    order = "b[agriculture]-d[potassium-bacteria]",
+    inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+    pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+    drop_sound = space_age_item_sounds.agriculture_inventory_move,
+    stack_size = 50,
+    default_import_location = "gleba",
+    weight = 1 * kg,
+    spoil_ticks = 1 * minute,
+    spoil_result = "potassium-nitrate"
+  },
   {
     type = "capsule",
     name = "boompuff",
@@ -220,8 +230,54 @@ data:extend(
     weight = 1 * kg,
     spoil_ticks = 60 * minute,
     spoil_result = "spoilage",
-    capsule_action = item_effects.yumako_regen
-	--todo replace regen with explosiveness
+    capsule_action = item_effects.boompuff_boom
+	--capsule_action =
+    --{
+    --  type = "throw",
+    --  attack_parameters =
+    --  {
+    --    type = "projectile",
+    --    activation_type = "throw",
+    --    ammo_category = "grenade",
+    --    cooldown = 30,
+    --    projectile_creation_distance = 0.6,
+    --    range = 15,
+    --    ammo_type =
+    --    {
+    --      target_type = "position",
+    --      action =
+    --      {
+    --        {
+    --          type = "direct",
+    --          action_delivery =
+    --          {
+    --            type = "projectile",
+    --            projectile = "grenade",
+    --            starting_speed = 0.3
+    --          }
+    --        },
+    --        {
+    --          type = "direct",
+    --          action_delivery =
+    --          {
+    --            type = "instant",
+    --            target_effects =
+    --            {
+    --              {
+    --                type = "play-sound",
+    --                sound = sounds.throw_projectile
+    --              },
+    --              {
+    --                type = "play-sound",
+    --                sound = sounds.throw_grenade
+    --              },
+    --            }
+    --          }
+    --        }
+    --      }
+    --    }
+    --  }
+    --},
   },
   {
     type = "capsule",
@@ -239,7 +295,7 @@ data:extend(
     spoil_ticks = 3 * minute,
     spoil_result = "spoilage",
     weight = 0.5 * kg,
-    capsule_action = item_effects.yumako_regen
+    capsule_action = item_effects.boompuff_boom
   },
   {
     type = "item",
@@ -254,8 +310,8 @@ data:extend(
       { size = 64, filename = "__pbpetrus__/graphics/icons/boompuff-seed.png", scale = 0.5, mipmap_count = 4 },
       { size = 64, filename = "__pbpetrus__/graphics/icons/boompuff-seed.png", scale = 0.5, mipmap_count = 4 },
     },
-    subgroup = "agriculture-processes",
-    order = "a[seeds]-c[boompuff-seed]",
+    subgroup = "plant-seeds",
+    order = "a[gleba]-c[boompuff-seed]",
     plant_result = "boompuff-tree",
     place_result = "boompuff-tree",
     inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
@@ -271,8 +327,8 @@ data:extend(
     type = "item",
     name = "artificial-boompuff-soil",
     icon = "__pbpetrus__/graphics/icons/artificial-boompuff-soil.png",
-    subgroup = "terrain",
-    order = "c[landfill]-e[artificial-boompuff-soil]",
+    subgroup = "soil",
+    order = "c[boompuff]-a[artificial-boompuff-soil]",
     inventory_move_sound = item_sounds.landfill_inventory_move,
     pick_sound = item_sounds.landfill_inventory_pickup,
     drop_sound = item_sounds.landfill_inventory_move,
@@ -297,8 +353,8 @@ data:extend(
     type = "item",
     name = "overgrowth-boompuff-soil",
     icon = "__pbpetrus__/graphics/icons/overgrowth-boompuff-soil.png",
-    subgroup = "terrain",
-    order = "c[landfill]-e[overgrowth-boompuff-soil]",
+    subgroup = "soil",
+    order = "c[boompuff]-b[overgrowth-boompuff-soil]",
     inventory_move_sound = item_sounds.landfill_inventory_move,
     pick_sound = item_sounds.landfill_inventory_pickup,
     drop_sound = item_sounds.landfill_inventory_move,
@@ -327,8 +383,8 @@ data:extend(
     type = "item",
     name = "artificial-teflilly-soil",
     icon = "__pbpetrus__/graphics/icons/artificial-teflilly-soil.png",
-    subgroup = "terrain",
-    order = "c[landfill]-e[artificial-teflilly-soil]",
+    subgroup = "soil",
+    order = "d[teflilly]-a[artificial-boompuff-soil]",
     inventory_move_sound = item_sounds.landfill_inventory_move,
     pick_sound = item_sounds.landfill_inventory_pickup,
     drop_sound = item_sounds.landfill_inventory_move,
@@ -348,8 +404,8 @@ data:extend(
     type = "item",
     name = "overgrowth-teflilly-soil",
     icon = "__pbpetrus__/graphics/icons/overgrowth-teflilly-soil.png",
-    subgroup = "terrain",
-    order = "c[landfill]-e[overgrowth-teflilly-soil]",
+    subgroup = "soil",
+    order = "d[teflilly]-b[overgrowth-boompuff-soil]",
     inventory_move_sound = item_sounds.landfill_inventory_move,
     pick_sound = item_sounds.landfill_inventory_pickup,
     drop_sound = item_sounds.landfill_inventory_move,
@@ -378,8 +434,8 @@ data:extend(
       { size = 64, filename = "__pbpetrus__/graphics/icons/teflilly-seed.png", scale = 0.5, mipmap_count = 4 },
       { size = 64, filename = "__pbpetrus__/graphics/icons/teflilly-seed.png", scale = 0.5, mipmap_count = 4 },
     },
-    subgroup = "feronia-agriculture",
-    order = "a[feronia-seeds]-d[teflilly-seed]",
+	subgroup = "plant-seeds",
+    order = "c[feronia]-a[teflilly-seed]",
     plant_result = "teflilly-plant",
     place_result = "teflilly-plant",
     inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,

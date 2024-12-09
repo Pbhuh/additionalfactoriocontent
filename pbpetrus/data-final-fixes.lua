@@ -18,6 +18,23 @@ data.raw["recipe"]["shotgun-shell"].ingredients =
       {type = "item", name = "copper-plate", amount = 2},
       {type = "item", name = "lead-plate", amount = 2}
 }
+data.raw.item["artificial-yumako-soil"].subgroup = "soil"
+data.raw.item["artificial-yumako-soil"].order = "a[yumako]-a[artificial-yumako-soil]"
+data.raw.item["overgrowth-yumako-soil"].subgroup = "soil"
+data.raw.item["overgrowth-yumako-soil"].order = "a[yumako]-a[artificial-yumako-soil]"
+data.raw.item["artificial-jellynut-soil"].subgroup = "soil"
+data.raw.item["artificial-jellynut-soil"].order = "b[jellynut]-a[artificial-jellynut-soil]"
+data.raw.item["overgrowth-jellynut-soil"].subgroup = "soil"
+data.raw.item["overgrowth-jellynut-soil"].order = "b[jellynut]-a[artificial-jellynut-soil]"
+
+data.raw.item["yumako-seed"].subgroup = "plant-seeds"
+data.raw.item["yumako-seed"].order = "a[gleba]-a[yumako-seed]"
+data.raw.item["jellynut-seed"].subgroup = "plant-seeds"
+data.raw.item["jellynut-seed"].order = "a[gleba]-b[jellynut-seed]"
+data.raw.item["tree-seed"].subgroup = "plant-seeds"
+data.raw.item["tree-seed"].order = "b[nauvis]-b[tree-seed]"
+
+data.raw.technology["battery"].prerequisites = { "sulfur-processing", "heavy-metals" }
 -- Amyz Changes
 -- Productivity 3 changes
 --data.raw["recipe"]["productivity-module-3"].ingredients = 

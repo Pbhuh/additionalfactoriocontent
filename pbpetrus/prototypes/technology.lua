@@ -318,7 +318,36 @@ data:extend(
       },
       time = 60
     }
-  }
+  },
+
+  {
+    type = "technology",
+    name = "heavy-metals",
+    icon = "__pbpetrus__/graphics/technology/heavy-metals.png",
+    icon_size = 256,
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "shotgun"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "shotgun-shell"
+      }
+      --{
+      --  type = "unlock-recipe",
+      --  recipe = "lead-core-magazine"
+      --}
+    },
+    research_trigger =
+    {
+      type = "craft-item",
+      item = "lead-plate",
+      count = 50
+    },
+    prerequisites = {}
+  },
 
 }
 )

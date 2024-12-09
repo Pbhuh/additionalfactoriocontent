@@ -6,7 +6,7 @@ local space_platform_tile_animations = require("prototypes.tile.platform-tile-an
 
 local tile_graphics = require("__base__/prototypes/tile/tile-graphics")
 local tile_spritesheet_layout = tile_graphics.tile_spritesheet_layout
-
+local tile_sounds = require("__space-age__/prototypes/tile/tile-sounds")
 local patch_for_inner_corner_of_transition_between_transition = tile_graphics.patch_for_inner_corner_of_transition_between_transition
 
 table.insert(out_of_map_tile_type_names, "empty-space")
@@ -394,6 +394,135 @@ data:extend
   },
   {
     type = "tile",
+    name = "foundation",
+    order = "a[artificial]-f",
+    subgroup = "artificial-tiles",
+    needs_correction = false,
+    minable = {mining_time = 0.5, result = "foundation"},
+    mined_sound = {filename = "__base__/sound/deconstruct-bricks.ogg", volume = 0.8},
+    is_foundation = true,
+    collision_mask = tile_collision_masks.ground(),
+    layer = 9,
+    layer_group = "ground-artificial",
+    transition_overlay_layer_offset = 2, -- need to render border overlay on top of hazard-concrete
+    decorative_removal_probability = 0.25,
+    variants =
+    {
+      main =
+      {
+        {
+          picture = "__space-age__/graphics/terrain/foundation/foundation-dummy.png",
+          count = 1,
+          size = 1
+        },
+        {
+          picture = "__space-age__/graphics/terrain/foundation/foundation-dummy.png",
+          count = 1,
+          size = 2,
+          probability = 0.39
+        },
+        {
+          picture = "__space-age__/graphics/terrain/foundation/foundation-dummy.png",
+          count = 1,
+          size = 4,
+          probability = 1
+        }
+      },
+      transition =
+      {
+        overlay_layout =
+        {
+          inner_corner =
+          {
+            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-inner-corner.png",
+            count = 16,
+            scale = 0.5
+          },
+          outer_corner =
+          {
+            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-outer-corner.png",
+            count = 8,
+            scale = 0.5
+          },
+          side =
+          {
+            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-side.png",
+            count = 16,
+            scale = 0.5
+          },
+          u_transition =
+          {
+            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-u.png",
+            count = 8,
+            scale = 0.5
+          },
+          o_transition =
+          {
+            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-o.png",
+            count = 4,
+            scale = 0.5
+          }
+        },
+        mask_layout =
+        {
+          inner_corner =
+          {
+            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-inner-corner-mask.png",
+            count = 16,
+            scale = 0.5
+          },
+          outer_corner =
+          {
+            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-outer-corner-mask.png",
+            count = 8,
+            scale = 0.5
+          },
+          side =
+          {
+            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-side-mask.png",
+            count = 16,
+            scale = 0.5
+          },
+          u_transition =
+          {
+            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-u-mask.png",
+            count = 8,
+            scale = 0.5
+          },
+          o_transition =
+          {
+            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-o-mask.png",
+            count = 4,
+            scale = 0.5
+          }
+        }
+      },
+
+      material_background =
+      {
+        picture = "__space-age__/graphics/terrain/foundation/foundation.png",
+        count = 8,
+        scale = 0.5
+      }
+    },
+
+    transitions = foundation_transitions,
+    transitions_between_transitions = foundation_transitions_between_transitions,
+
+    walking_sound = dirt_sounds,
+    build_sound = concrete_tile_build_sounds,
+    map_color={57, 39, 26},
+    scorch_mark_color = {r = 0.329, g = 0.242, b = 0.177, a = 1.000},
+    vehicle_friction_modifier = 1.1,
+
+    trigger_effect = tile_trigger_effects.concrete_trigger_effect()
+  }
+}
+
+data:extend
+{
+	{
+    type = "tile",
     name = "titanium-platform-foundation",
     order = "a[artificial]-d[utility]-b[titanium-platform-foundation]",
     subgroup = "artificial-tiles",
@@ -588,129 +717,171 @@ data:extend
     map_color = {63, 61, 59},
     scorch_mark_color = {r = 0.373, g = 0.307, b = 0.243, a = 1.000}
   },
-  {
+	{
+    name = "aiolos-air",
     type = "tile",
-    name = "foundation",
-    order = "a[artificial]-f",
-    subgroup = "artificial-tiles",
-    needs_correction = false,
-    minable = {mining_time = 0.5, result = "foundation"},
-    mined_sound = {filename = "__base__/sound/deconstruct-bricks.ogg", volume = 0.8},
-    is_foundation = true,
-    collision_mask = tile_collision_masks.ground(),
-    layer = 9,
-    layer_group = "ground-artificial",
-    transition_overlay_layer_offset = 2, -- need to render border overlay on top of hazard-concrete
-    decorative_removal_probability = 0.25,
+    order = "z[other]-c[aiolos-air]",
+    subgroup = "special-tiles",
+    collision_mask =
+    {
+      layers=
+      {
+        ground_tile=true,
+        water_tile=true,
+        empty_space=true,
+        resource=true,
+        floor=true,
+        item=true,
+        object=true,
+        player=true,
+        doodad=true
+      },
+    },
+    layer_group = "zero",
+    layer = 0,
+    effect = "space",
+    effect_color = {10, 50, 0},
+    effect_color_secondary = { 0, 68, 25 },
+    particle_tints =
+    {
+      primary = {0, 0, 0, 0},
+      secondary = {0, 0, 0, 0},
+    },
     variants =
     {
       main =
       {
         {
-          picture = "__space-age__/graphics/terrain/foundation/foundation-dummy.png",
+          picture = "__pbpetrus__/graphics/terrain/aiolos-air.png",
           count = 1,
           size = 1
-        },
-        {
-          picture = "__space-age__/graphics/terrain/foundation/foundation-dummy.png",
-          count = 1,
-          size = 2,
-          probability = 0.39
-        },
-        {
-          picture = "__space-age__/graphics/terrain/foundation/foundation-dummy.png",
-          count = 1,
-          size = 4,
-          probability = 1
         }
       },
-      transition =
-      {
-        overlay_layout =
-        {
-          inner_corner =
-          {
-            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-inner-corner.png",
-            count = 16,
-            scale = 0.5
-          },
-          outer_corner =
-          {
-            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-outer-corner.png",
-            count = 8,
-            scale = 0.5
-          },
-          side =
-          {
-            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-side.png",
-            count = 16,
-            scale = 0.5
-          },
-          u_transition =
-          {
-            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-u.png",
-            count = 8,
-            scale = 0.5
-          },
-          o_transition =
-          {
-            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-o.png",
-            count = 4,
-            scale = 0.5
-          }
-        },
-        mask_layout =
-        {
-          inner_corner =
-          {
-            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-inner-corner-mask.png",
-            count = 16,
-            scale = 0.5
-          },
-          outer_corner =
-          {
-            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-outer-corner-mask.png",
-            count = 8,
-            scale = 0.5
-          },
-          side =
-          {
-            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-side-mask.png",
-            count = 16,
-            scale = 0.5
-          },
-          u_transition =
-          {
-            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-u-mask.png",
-            count = 8,
-            scale = 0.5
-          },
-          o_transition =
-          {
-            spritesheet = "__space-age__/graphics/terrain/foundation/foundation-o-mask.png",
-            count = 4,
-            scale = 0.5
-          }
-        }
-      },
-
-      material_background =
-      {
-        picture = "__space-age__/graphics/terrain/foundation/foundation.png",
-        count = 8,
-        scale = 0.5
-      }
+      empty_transitions = true
     },
+    map_color = {0, 0, 0},
+    absorptions_per_second = tile_pollution.out_of_map,
+    autoplace = {probability_expression = 1},
+    default_cover_tile = "space-platform-foundation"
+  },
+  {
+    type = "tile",
+    name = "cloud-tile",
+    order = "y[aiolos]-c[cloud-tile]",
+    subgroup = "aiolos-tiles",
+	collision_mask =
+    {
+      layers=
+      {
+        ground_tile=true,
+        water_tile=true,
+        empty_space=true,
+        resource=true,
+        floor=true,
+        item=true,
+        object=true,
+        player=true,
+        doodad=true
+      },
+    },
+    layer = 1,
+    searchable = true,
 
-    transitions = foundation_transitions,
-    transitions_between_transitions = foundation_transitions_between_transitions,
+    transitions = data.raw["tile"]["landfill"].transitions,
+    transitions_between_transitions = data.raw["tile"]["landfill"].transitions_between_transitions,
+    trigger_effect = tile_trigger_effects.landfill_trigger_effect(),
 
-    walking_sound = dirt_sounds,
-    build_sound = concrete_tile_build_sounds,
-    map_color={57, 39, 26},
-    scorch_mark_color = {r = 0.329, g = 0.242, b = 0.177, a = 1.000},
-    vehicle_friction_modifier = 1.1,
+    --sprite_usage_surface = "aiolos",
+    variants = tile_variations_template_with_transitions(
+      "__pbpetrus__/graphics/terrain/aiolos-air-tile2.png",
+      {
+        max_size = 4,
+        [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
+        [2] = { probability = 1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
+        [4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
+      }
+    ),
 
-    trigger_effect = tile_trigger_effects.concrete_trigger_effect()
-  }
-}
+    --default_cover_tile = "aerostat-platform"
+    walking_sound = semi_wet_sound,
+    landing_steps_sound = tile_sounds.landing.semi_wet,
+    driving_sound = wetland_driving_sound,
+    build_sound = data.raw["tile"]["landfill"].build_sound,
+    map_color={204, 183, 6},
+    scorch_mark_color = {r = 0.329, g = 0.242*2, b = 0.177, a = 1.000}
+  },
+  {
+    type = "tile",
+    name = "marsh-test-tile",
+    order = "y[aiolos]-c[cloud-tile]",
+    subgroup = "aiolos-tiles",
+    collision_mask = tile_collision_masks.shallow_water(),
+    autoplace = {probability_expression = "gleba_shallows_aux_1 + 2 * min(gleba_select(gleba_aux, 0, 0.3, 0.005, 0, 1), gleba_rockpools_shallow)"},
+    lowland_fog = true,
+    effect = "wetland-green",
+    --effect_color = {50,66,66},
+    --effect_color_secondary = { 49, 80, 14 },
+    effect_color = {100,83,0},
+    effect_color_secondary = { 39, 70, 24 },
+    map_color = {25, 53, 25},
+    particle_tints = tile_graphics.gleba_shallow_water_particle_tints,
+    layer = 6,
+    layer_group = "water-overlay",
+    sprite_usage_surface = "gleba",
+    variants =
+    {
+      main =
+      {
+        {
+          picture = "__pbpetrus__/graphics/terrain/gleba/wetland-dead-skin.png",
+          count = 1,
+          scale = 0.5,
+          size = 1
+        }
+      },
+      empty_transitions=true,
+    },
+    --transitions = {lava_to_out_of_map_transition},
+    --transitions_between_transitions = data.raw.tile["water"].transitions_between_transitions,walking_sound = slime_sound,
+    landing_steps_sound = tile_sounds.landing.semi_wet,
+    driving_sound = wetland_driving_sound,
+    walking_speed_modifier = 0.8,
+    vehicle_friction_modifier = 8.0,
+    trigger_effect = tile_trigger_effects.shallow_water_trigger_effect(),
+    default_cover_tile = "landfill",
+    fluid = "water",
+    ambient_sounds =
+    {
+      {
+      sound =
+      {
+        variations = sound_variations("__space-age__/sound/world/tiles/insects-deep-mud", 8, 0.4),
+        advanced_volume_control =
+        {
+          fades = {fade_in = {curve_type = "cosine", from = {control = 0.5, volume_percentage = 0.0}, to = {1.5, 100.0}}}
+        }
+      },
+      radius = 7.5,
+      min_entity_count = 10,
+      max_entity_count = 15,
+      entity_to_sound_ratio = 0.1,
+      average_pause_seconds = 3,
+    },
+    {
+      sound =
+      {
+        variations = sound_variations("__space-age__/sound/world/tiles/night-frogs", 10, 0.3),
+        advanced_volume_control =
+        {
+          fades = {fade_in = {curve_type = "cosine", from = {control = 0.5, volume_percentage = 0.0}, to = {1.5, 100.0}}},
+          darkness_threshold = 0.85
+        }
+      },
+      min_entity_count = 20,
+      max_entity_count = 25,
+      entity_to_sound_ratio = 0.1,
+      average_pause_seconds = 8,
+    }
+    }
+  },
+ }

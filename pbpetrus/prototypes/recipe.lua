@@ -124,6 +124,32 @@ data:extend(
   },
   {
     type = "recipe",
+    name = "ethanol",
+    icon = "__pbpetrus__/graphics/icons/fluid/ethanol-from-nutrients.png",
+    category = "organic-or-chemistry",
+    subgroup = "fluid-recipes",
+    order = "b[organic-products]-b[ethanol]",
+    auto_recycle = false,
+    energy_required = 3,
+    enabled = false,
+    ingredients =
+    {
+      {type = "fluid", name ="ethylene", amount = 10},
+      {type = "fluid", name="steam", amount = 20}
+    },
+    results =
+    {
+      {type = "fluid", name="ethanol", amount = 20}
+    },
+    allow_productivity = true,
+    crafting_machine_tint =
+    {
+      primary = {r = 0, g = 1, b = 0, a = 1.000},
+      secondary = {r = 0.3, g = 1, b = 0.3, a = 1.000},
+    }
+  },
+  {
+    type = "recipe",
     name = "lead-plate",
     category = "smelting",
     energy_required = 3.2,
