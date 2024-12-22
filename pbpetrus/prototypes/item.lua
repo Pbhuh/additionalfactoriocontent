@@ -81,6 +81,119 @@ data:extend(
     weight = 5*kg
   },
   {
+    type = "item",
+    name = "yellowcake",
+    icon = "__pbpetrus__/graphics/icons/yellowcake.png",
+    subgroup = "raw-material",
+    color_hint = { text = "I" },
+    order = "a[smelting]-x[yellowcake]",
+    inventory_move_sound = item_sounds.metal_small_inventory_move,
+    pick_sound = item_sounds.metal_small_inventory_pickup,
+    drop_sound = item_sounds.metal_small_inventory_move,
+    stack_size = 100,
+    random_tint_color = item_tints.iron_rust,
+    weight = 5*kg
+  },
+  {
+    type = "item",
+    name = "plutonium-238",
+    icon = "__pbpetrus__/graphics/icons/metal-plutonium.png",
+    pictures =
+    {
+      layers =
+      {
+        {
+          size = 64,
+          filename = "__pbpetrus__/graphics/icons/metal-plutonium.png",
+          scale = 0.5,
+          mipmap_count = 4
+        },
+        {
+          draw_as_light = true,
+          blend_mode = "additive",
+          size = 64,
+          filename = "__pbpetrus__/graphics/icons/metal-plutonium-glow.png",
+          scale = 0.5,
+          tint = {0.3, 0.3, 0.3, 0.3}
+        }
+      }
+    },
+    subgroup = "uranium-processing",
+    color_hint = { text = "+" },
+    order = "a[uranium-processing]-b[uranium-235]",
+    inventory_move_sound = item_sounds.nuclear_inventory_move,
+    pick_sound = item_sounds.nuclear_inventory_pickup,
+    drop_sound = item_sounds.nuclear_inventory_move,
+    stack_size = 100,
+    weight = 50*kg
+  },
+  {
+    type = "item",
+    name = "low-enriched-uranium",
+    icon = "__pbpetrus__/graphics/icons/low-enriched-uranium.png",
+    pictures =
+    {
+      layers =
+      {
+        {
+          size = 64,
+          filename = "__pbpetrus__/graphics/icons/low-enriched-uranium.png",
+          scale = 0.5,
+          mipmap_count = 4
+        },
+        {
+          draw_as_light = true,
+          blend_mode = "additive",
+          size = 64,
+          filename = "__base__/graphics/icons/uranium-235.png",
+          scale = 0.5,
+          tint = {0.3, 0.3, 0.3, 0.3}
+        }
+      }
+    },
+    subgroup = "uranium-processing",
+    color_hint = { text = "+" },
+    order = "a[uranium-processing]-b[uranium-235]",
+    inventory_move_sound = item_sounds.nuclear_inventory_move,
+    pick_sound = item_sounds.nuclear_inventory_pickup,
+    drop_sound = item_sounds.nuclear_inventory_move,
+    stack_size = 100,
+    weight = 50*kg
+  },
+  {
+    type = "item",
+    name = "weapon-grade-uranium",
+    icon = "__pbpetrus__/graphics/icons/weapon-grade-uranium.png",
+    pictures =
+    {
+      layers =
+      {
+        {
+          size = 64,
+          filename = "__pbpetrus__/graphics/icons/weapon-grade-uranium.png",
+          scale = 0.5,
+          mipmap_count = 4
+        },
+        {
+          draw_as_light = true,
+          blend_mode = "additive",
+          size = 64,
+          filename = "__base__/graphics/icons/uranium-235.png",
+          scale = 0.5,
+          tint = {0.3, 0.3, 0.3, 0.3}
+        }
+      }
+    },
+    subgroup = "uranium-processing",
+    color_hint = { text = "+" },
+    order = "a[uranium-processing]-b[uranium-235]",
+    inventory_move_sound = item_sounds.nuclear_inventory_move,
+    pick_sound = item_sounds.nuclear_inventory_pickup,
+    drop_sound = item_sounds.nuclear_inventory_move,
+    stack_size = 100,
+    weight = 50*kg
+  },
+  {
     type = "ammo",
     name = "lead-core-magazine",
     icon = "__pbpetrus__/graphics/icons/lead-core-magazine.png",

@@ -589,37 +589,37 @@ data:extend
         {
           inner_corner =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-inner-corner.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-inner-corner.png",
             count = 16,
             scale = 0.5
           },
           outer_corner =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-outer-corner.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-outer-corner.png",
             count = 16,
             scale = 0.5
           },
           side =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-side.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-side.png",
             count = 32,
             scale = 0.5
           },
           double_side =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-double-side.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-double-side.png",
             count = 8,
             scale = 0.5
           },
           u_transition =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-u.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-u.png",
             count = 4,
             scale = 0.5
           },
           o_transition =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-o.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-o.png",
             count = 1,
             scale = 0.5
           }
@@ -628,35 +628,35 @@ data:extend
         {
           inner_corner =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-inner-corner-background.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-inner-corner-background.png",
             count = 16,
             scale = 0.5,
             tile_height = 8
           },
           outer_corner =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-outer-corner-background.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-outer-corner-background.png",
             count = 16,
             scale = 0.5,
             tile_height = 8
           },
           side =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-side-background.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-side-background.png",
             count = 32,
             scale = 0.5,
             tile_height = 8
           },
           double_side =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-double-side-background.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-double-side-background.png",
             count = 8,
             scale = 0.5,
             tile_height = 8
           },
           u_transition =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-u-background.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-u-background.png",
             count = 4,
             scale = 0.5,
             tile_height = 8
@@ -667,37 +667,37 @@ data:extend
         {
           inner_corner =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-inner-corner-mask.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-inner-corner-mask.png",
             count = 16,
             scale = 0.5
           },
           outer_corner =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-outer-corner-mask.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-outer-corner-mask.png",
             count = 16,
             scale = 0.5
           },
           side =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-side-mask.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-side-mask.png",
             count = 32,
             scale = 0.5
           },
           double_side =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-double-side-mask.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-double-side-mask.png",
             count = 8,
             scale = 0.5
           },
           u_transition =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-u-mask.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-u-mask.png",
             count = 4,
             scale = 0.5
           },
           o_transition =
           {
-            spritesheet = "__space-age__/graphics/terrain/space-platform/space-platform-o-mask.png",
+            spritesheet = "__pbpetrus__/graphics/terrain/space-platform/space-platform-o-mask.png",
             count = 1,
             scale = 0.5
           }

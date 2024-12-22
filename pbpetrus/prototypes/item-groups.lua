@@ -17,5 +17,11 @@ data:extend(
     group = "intermediate-products",
     order = "m"
   },
+  {
+    type = "item-subgroup",
+    name = "uranium-processes",
+    group = "intermediate-products",
+    order = "x"
+  },
 }
 )
