@@ -25,10 +25,10 @@ data:extend(
   {
     type = "item",
     name = "yellowcake",
-    icon = "__pbnuclear__/graphics/icons/yellowcake-U3O8.png",
+    icon = "__pbnuclear__/graphics/icons/yellowcake.png",
     subgroup = "uranium-processing",
     color_hint = { text = "+" },
-    order = "a[uranium-processing]-b[yellowcake]",
+    order = "a[uranium-processing]-a[yellowcake]",
     inventory_move_sound = item_sounds.metal_small_inventory_move,
     pick_sound = item_sounds.metal_small_inventory_pickup,
     drop_sound = item_sounds.metal_small_inventory_move,
@@ -42,7 +42,7 @@ data:extend(
     icon = "__pbnuclear__/graphics/icons/uranium-tetrachloride.png",
     subgroup = "uranium-processing",
     color_hint = { text = "+" },
-    order = "a[uranium-processing]-c[uranium-tetrachloride]",
+    order = "a[uranium-processing]-b[uranium-tetrachloride]",
     inventory_move_sound = item_sounds.metal_small_inventory_move,
     pick_sound = item_sounds.metal_small_inventory_pickup,
     drop_sound = item_sounds.metal_small_inventory_move,
@@ -245,7 +245,34 @@ data:extend(
     drop_sound = item_sounds.atomic_bomb_inventory_move,
     stack_size = 10,
     weight = 1.5 * tons
-  }
+  },
+  {
+    type = "item",
+    name = "radioisotope-thermal-generator",
+    icon  = "__pbnuclear__/graphics/icons/radioisotope-thermal-generator.png",
+    subgroup = "energy",
+    order = "f[nuclear-energy]-a[reactor]",
+    inventory_move_sound = item_sounds.reactor_inventory_move,
+    pick_sound = item_sounds.reactor_inventory_pickup,
+    drop_sound = item_sounds.reactor_inventory_move,
+    place_result = "radioisotope-thermal-generator",
+    --place_result = "nuclear-reactor",
+    weight = 1 * tons,
+    stack_size = 10
+  },  
+  {
+    type = "item",
+    name = "fracking-tower",
+    icon = "__base__/graphics/icons/pump.png",
+    subgroup = "energy-pipe-distribution",
+    order = "b[pipe]-c[pump]",
+    inventory_move_sound = item_sounds.fluid_inventory_move,
+    pick_sound = item_sounds.fluid_inventory_pickup,
+    drop_sound = item_sounds.fluid_inventory_move,
+    place_result = "pump",
+    stack_size = 50,
+    random_tint_color = item_tints.iron_rust
+  },
 })
 
 --data.raw["recipe"]["productivity-module-3"].ingredients = 

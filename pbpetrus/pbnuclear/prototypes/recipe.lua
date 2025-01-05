@@ -74,8 +74,8 @@ data:extend(
     enabled = false,
     --category = "centrifuging",
     category = "cryogenics",
-    ingredients = {{type = "fluid", name = "uranium-hexafluoride", amount = 10}},
-    icon = "__base__/graphics/icons/uranium-processing.png",
+    ingredients = {{type = "fluid", name = "uranium-235-hexafluoride", amount = 10}},
+    icon = "__pbnuclear__/graphics/icons/fluid/uranium-235-hexafluoride.png",
     subgroup = "uranium-processing",
     order = "a[uranium-processing]-a[uranium-processing]",
     results =
@@ -84,13 +84,13 @@ data:extend(
         type = "fluid",
         name = "uranium-235-hexafluoride",
         probability = 0.007,
-        amount = 1
+        amount = 10
       },
       {
         type = "fluid",
         name = "uranium-238-hexafluoride",
         probability = 0.993,
-        amount = 1
+        amount = 10
       }
     },
     allow_productivity = true
@@ -157,7 +157,7 @@ data:extend(
     energy_required = 10,
     enabled = false,
     category = "centrifuging",
-    ingredients = {{type = "item", name = "depleted-uranium-fuel-cell", amount = 5}},
+    ingredients = {{type = "item", name = "depleted-uranium-fuel-cell", amount = 1}},
     icon = "__base__/graphics/icons/nuclear-fuel-reprocessing.png",
     subgroup = "uranium-processing",
     order = "b[uranium-products]-b[nuclear-fuel-reprocessing]",
@@ -191,6 +191,31 @@ data:extend(
   },
   {
     type = "recipe",
+    name = "weapon-grade-enrichment",
+    energy_required = 12,
+    enabled = false,
+    category = "centrifuging",
+    ingredients = {{type = "item", name = "low-enriched-uranium", amount = 16}}, --20 for 100% enrichment
+    icon = "__base__/graphics/icons/uranium-processing.png",
+    subgroup = "uranium-processing",
+    order = "a[uranium-processing]-a[uranium-processing]",
+    results =
+    {
+      {
+        type = "item",
+        name = "weapon-grade-uranium",
+        amount = 1
+      },
+      {
+        type = "item",
+        name = "uranium-238",
+        amount = 15 --19 for 100% 235
+      }
+    },
+    allow_productivity = true
+  },
+  {
+    type = "recipe",
     name = "plutonium-implosion-bomb",
     enabled = false,
     energy_required = 50,
@@ -201,7 +226,7 @@ data:extend(
       --{type = "item", name = "battery", amount = 10},
       {type = "item", name = "plutonium-239", amount = 10}
     },
-    results = {{type="item", name="atomic-bomb", amount=1}}
+    results = {{type="item", name="plutonium-implosion-bomb", amount=1}}
   },
 }
 )
