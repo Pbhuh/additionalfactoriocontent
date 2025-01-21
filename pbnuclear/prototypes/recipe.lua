@@ -81,7 +81,7 @@ data:extend(
     results =
     {
       {
-        type = "item",
+        type = "fluid",
         name = "uranium-235-hexafluoride",
         probability = 0.007,
         amount = 1
@@ -113,7 +113,7 @@ data:extend(
     results =
     {
       {
-        type = "fluid",
+        type = "item",
         name = "uranium-235",
         probability = 0.007,
         amount = 10
