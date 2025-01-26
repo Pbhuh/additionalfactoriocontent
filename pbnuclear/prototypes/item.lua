@@ -2454,21 +2454,21 @@ data:extend({
 		--random_tint_color = item_tints.iron_rust		
 	},
 	
-	{
-		type = "item",
-		name = "purification-plant",
-		hidden = true,
-		icon = "__outer_moons__/graphics/icons/purification-plant.png",
-		subgroup = "production-machine",
-		order = "g[purification-plant]",
-		inventory_move_sound = item_sounds.mechanical_inventory_move,
-		pick_sound = item_sounds.mechanical_inventory_pickup,
-		drop_sound = item_sounds.mechanical_inventory_move,
-		place_result = "purification-plant",
-		stack_size = 10,
-		weight = 100 * kg,
-	},
-	
+	--{
+	--	type = "item",
+	--	name = "purification-plant",
+	--	hidden = true,
+	--	icon = "__outer_moons__/graphics/icons/purification-plant.png",
+	--	subgroup = "production-machine",
+	--	order = "g[purification-plant]",
+	--	inventory_move_sound = item_sounds.mechanical_inventory_move,
+	--	pick_sound = item_sounds.mechanical_inventory_pickup,
+	--	drop_sound = item_sounds.mechanical_inventory_move,
+	--	place_result = "purification-plant",
+	--	stack_size = 10,
+	--	weight = 100 * kg,
+	--},
+	--
 	-- Science
 	{
 		type = "tool",
@@ -3296,6 +3296,55 @@ data:extend(
         stack_size = 50,
         weight = 10 * kg
     },
+	{
+        type = "item",
+        name = "mercury",
+        group = "intermediate-products",
+        icon = "__pbnuclear__/graphics/icons/platinum-bar.png",
+        subgroup = "precious-metals",
+		default_import_location = "nauvis",
+        order = "o[tin]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 50,
+        weight = 10 * kg
+    },
+	{
+		type = "item",
+		name = "plutonium-238",
+		icon = "__outer_moons__/graphics/icons/plutonium-239.png",
+		pictures =
+		{
+		  layers =
+		  {
+			{
+			  size = 64,
+			  filename = "__outer_moons__/graphics/icons/plutonium-239.png",
+			  scale = 0.5,
+			  mipmap_count = 4
+			},
+			{
+			  draw_as_light = true,
+			  blend_mode = "additive",
+			  size = 64,
+			  filename = "__outer_moons__/graphics/icons/plutonium-239.png",
+			  scale = 0.5,
+			  tint = {0.3, 0.3, 0.3, 0.3}
+			}
+		  }
+		},
+		subgroup = "uranium-processing",
+		color_hint = { text = "+" },
+		order = "a[uranium-processing]-d[plutonium-239]",
+		fuel_category = "radiothermal",
+		fuel_value = "10GJ", --per kg
+		inventory_move_sound = item_sounds.nuclear_inventory_move,
+		pick_sound = item_sounds.nuclear_inventory_pickup,
+		drop_sound = item_sounds.nuclear_inventory_move,
+		stack_size = 100,
+		weight = 50*kg
+	},
 	--Alloys	
 	{
         type = "item",
@@ -3314,6 +3363,20 @@ data:extend(
 	{
         type = "item",
         name = "brass",
+        group = "intermediate-products",
+        icon = "__pbnuclear__/graphics/icons/brass-d-plate.png",
+		subgroup = "alloy",
+		default_import_location = "nauvis",
+        order = "f[brass]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 50,
+        weight = 2 * kg
+    },
+	{
+        type = "item",
+        name = "electrum",
         group = "intermediate-products",
         icon = "__pbnuclear__/graphics/icons/brass-d-plate.png",
 		subgroup = "alloy",

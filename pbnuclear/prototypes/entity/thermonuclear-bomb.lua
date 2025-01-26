@@ -1,7 +1,7 @@
-local explosion_animations = require("prototypes.entity.explosion-animations")
-local smoke_animations = require("prototypes.entity.smoke-animations")
-local smoke_animations = require("prototypes.entity.smoke-animations")
-local sounds = require("prototypes.entity.sounds")
+local explosion_animations = require("__base__.prototypes.entity.explosion-animations")
+local smoke_animations = require("__base__.prototypes.entity.smoke-animations")
+local smoke_animations = require("__base__.prototypes.entity.smoke-animations")
+local sounds = require("__base__.prototypes.entity.sounds")
 
 local max_nuke_shockwave_movement_distance_deviation = 2
 
@@ -23,7 +23,7 @@ data:extend({
     fade_away_duration = 20,
     start_scale = 2,
     -- scale_deviation = 0.5, -- MAYBE: add support for scale deviation to trivial-smoke?
-    end_scale = 0.2,
+    end_scale = 0.5,
     render_layer = "higher-object-under",
     color = {r = 0.627, g = 0.478, b = 0.345, a = 0.500},
     affected_by_wind = true,
@@ -282,8 +282,8 @@ data:extend({
     scale_out_duration = 50,
     scale_in_duration = 10,
     scale_initial = 0.1,
-    scale = 1.5,
-    scale_deviation = 0.2,
+    scale = 2.5,
+    scale_deviation = 0.3,
     scale_increment_per_tick = 0.005,
     correct_rotation = true,
     scale_animation_speed = true,
@@ -354,7 +354,7 @@ data:extend({
   -----------------------------------------------------------------------
   {
     type = "projectile",
-    name = "atomic-rocket",
+    name = "thermonuclear-rocket",
     flags = {"not-on-map"},
     hidden = true,
     acceleration = 0.005,
@@ -371,13 +371,13 @@ data:extend({
           {
             type = "set-tile",
             tile_name = "nuclear-ground",
-            radius = 12,
+            radius = 36,
             apply_projection = true,
             tile_collision_mask = { layers={water_tile=true} }
           },
           {
             type = "destroy-cliffs",
-            radius = 9,
+            radius = 27,
             explosion_at_trigger = "explosion"
           },
           {
@@ -414,7 +414,7 @@ data:extend({
           },
           {
             type = "damage",
-            damage = {amount = 400, type = "explosion"}
+            damage = {amount = 800, type = "explosion"}
           },
           {
             type = "create-entity",
@@ -424,7 +424,7 @@ data:extend({
           },
           {
             type = "invoke-tile-trigger",
-            repeat_count = 1
+            repeat_count = 3
           },
           {
             type = "destroy-decoratives",
@@ -432,7 +432,7 @@ data:extend({
             include_decals = true,
             invoke_decorative_trigger = true,
             decoratives_with_trigger_only = false, -- if true, destroys only decoratives that have trigger_effect set
-            radius = 14 -- large radius for demostrative purposes
+            radius = 40 -- large radius for demostrative purposes
           },
           {
             type = "create-decorative",
@@ -452,7 +452,7 @@ data:extend({
               target_entities = false,
               trigger_from_target = true,
               repeat_count = 1000,
-              radius = 7,
+              radius = 15,
               action_delivery =
               {
                 type = "projectile",
