@@ -217,6 +217,19 @@ data:extend({
 		stack_size = 100,
 		weight = 1 * kg,
 	},
+	{
+		type = "item",
+		name = "bismuth-plate",		
+        group = "raw-material",
+		icon = "__pbnuclear__/graphics/icons/bismuth-plate.png",
+		subgroup = "raw-material",
+		order = "c[lead-plate]",
+		inventory_move_sound = item_sounds.metal_small_inventory_move,
+		pick_sound = item_sounds.metal_small_inventory_pickup,
+		drop_sound = item_sounds.metal_small_inventory_move,
+		stack_size = 100,
+		weight = 1 * kg,
+	},
 	{ --Nickel (Ni) improves elevated temperature strength.
 		type = "item",
 		name = "nickel-plate",		
@@ -2987,7 +3000,7 @@ data:extend(
 	{
 		type = "item",
 		name = "diamond",
-		icon = "__pbnuclear__/graphics/icons/diamond.png",
+		icon = "__pbnuclear__/graphics/icons/diamond-3.png",
 		subgroup = "aiolos-processes",
 		order = "e[diamonds]",
 		inventory_move_sound = item_sounds.wire_inventory_move,
@@ -2997,6 +3010,7 @@ data:extend(
 		default_import_location = "aiolos",
 		ingredient_to_weight_coefficient = 0.6
 	},
+	--Ore
 	{
         type = "item",
         name = "pyromorphite-ore",
@@ -3013,15 +3027,35 @@ data:extend(
     },
 	{
         type = "item",
-        name = "borax-ore",
+        name = "cinnabar-ore",
         group = "intermediate-products",
-        icon = "__outer_moons__/graphics/icons/magnesium-ore.png",
+        icon = "__pbnuclear__/graphics/icons/cinnabar-1.png",
         pictures =
 		{
-		  { size = 64, filename = "__outer_moons__/graphics/icons/magnesium-ore.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/magnesium-ore-2.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/magnesium-ore-3.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/magnesium-ore-4.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__pbnuclear__/graphics/icons/cinnabar-1.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__pbnuclear__/graphics/icons/cinnabar-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__pbnuclear__/graphics/icons/cinnabar-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__pbnuclear__/graphics/icons/cinnabar-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+		subgroup = "raw-resource",
+		color_hint = { text = "C" },
+		order = "p[cinnabar-ore]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 50,
+        weight = 2 * kg
+    },
+	{
+        type = "item",
+        name = "borax-ore",
+        group = "intermediate-products",
+        icon = "__pbnuclear__/graphics/icons/borax.png",
+        pictures =
+		{
+		  { size = 64, filename = "__pbnuclear__/graphics/icons/borax.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__pbnuclear__/graphics/icons/borax-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__pbnuclear__/graphics/icons/borax-3.png", scale = 0.5, mipmap_count = 4 },
 		},
 		subgroup = "raw-resource",
 		color_hint = { text = "C" },
@@ -3032,28 +3066,6 @@ data:extend(
         stack_size = 50,
         weight = 2 * kg
     },
-	{
-        type = "item",
-        name = "boric-acid",
-        group = "intermediate-products",
-        icon = "__outer_moons__/graphics/icons/salt.png",
-        pictures =
-		{
-		  { size = 64, filename = "__outer_moons__/graphics/icons/magnesium-ore.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/magnesium-ore-2.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/magnesium-ore-3.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/magnesium-ore-4.png", scale = 0.5, mipmap_count = 4 },
-		},
-        subgroup = "chemical",
-		default_import_location = "nauvis",
-        order = "k[salt]",
-        inventory_move_sound = item_sounds.resource_inventory_move,
-        pick_sound = item_sounds.resource_inventory_pickup,
-        drop_sound = item_sounds.resource_inventory_move,
-        stack_size = 50,
-        weight = 2 * kg
-    },
-	-- Rare-Earth Metals	
 	{
         type = "item",
         name = "gadolinite-ore",
@@ -3082,6 +3094,44 @@ data:extend(
         stack_size = 50,
         weight = 2 * kg
     },
+	--Salt
+	{
+        type = "item",
+        name = "boric-acid",
+        group = "intermediate-products",
+        icon = "__outer_moons__/graphics/icons/salt.png",
+        pictures =
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/magnesium-ore.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/magnesium-ore-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/magnesium-ore-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/magnesium-ore-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+        subgroup = "chemical",
+		default_import_location = "nauvis",
+        order = "k[salt]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 50,
+        weight = 2 * kg
+    },
+	--Intermediates
+	{
+        type = "item",
+        name = "solder",
+        group = "intermediate-products",
+        icon = "__pbnuclear__/graphics/icons/solder.png",
+        subgroup = "chemical",
+		default_import_location = "nauvis",
+        order = "k[salt]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 50,
+        weight = 2 * kg
+    },
+	-- Rare-Earth Metals	
 	{
         type = "item",
         name = "scandium",
@@ -3110,34 +3160,34 @@ data:extend(
         stack_size = 50,
         weight = 2 * kg
     },
-	{
-        type = "item",
-        name = "lanthanum",
-        group = "intermediate-products",
-        icon = "__pbnuclear__/graphics/icons/lanthanum-plate.png",
-        subgroup = "rare-earth",
-		default_import_location = "nauvis",
-        order = "l[lanthanum]",
-        inventory_move_sound = item_sounds.resource_inventory_move,
-        pick_sound = item_sounds.resource_inventory_pickup,
-        drop_sound = item_sounds.resource_inventory_move,
-        stack_size = 50,
-        weight = 2 * kg
-    },
-	{
-        type = "item",
-        name = "cerium",
-        group = "intermediate-products",
-        icon = "__pbnuclear__/graphics/icons/cerium-plate.png",
-        subgroup = "rare-earth",
-		default_import_location = "nauvis",
-        order = "m[cerium]",
-        inventory_move_sound = item_sounds.resource_inventory_move,
-        pick_sound = item_sounds.resource_inventory_pickup,
-        drop_sound = item_sounds.resource_inventory_move,
-        stack_size = 50,
-        weight = 2 * kg
-    },
+	--{
+    --    type = "item",
+    --    name = "lanthanum",
+    --    group = "intermediate-products",
+    --    icon = "__pbnuclear__/graphics/icons/lanthanum-plate.png",
+    --    subgroup = "rare-earth",
+	--	default_import_location = "nauvis",
+    --    order = "l[lanthanum]",
+    --    inventory_move_sound = item_sounds.resource_inventory_move,
+    --    pick_sound = item_sounds.resource_inventory_pickup,
+    --    drop_sound = item_sounds.resource_inventory_move,
+    --    stack_size = 50,
+    --    weight = 2 * kg
+    --},
+	--{
+    --    type = "item",
+    --    name = "cerium",
+    --    group = "intermediate-products",
+    --    icon = "__pbnuclear__/graphics/icons/cerium-plate.png",
+    --    subgroup = "rare-earth",
+	--	default_import_location = "nauvis",
+    --    order = "m[cerium]",
+    --    inventory_move_sound = item_sounds.resource_inventory_move,
+    --    pick_sound = item_sounds.resource_inventory_pickup,
+    --    drop_sound = item_sounds.resource_inventory_move,
+    --    stack_size = 50,
+    --    weight = 2 * kg
+    --},
 	{
         type = "item",
         name = "praesodymium",
@@ -3152,20 +3202,20 @@ data:extend(
         stack_size = 50,
         weight = 2 * kg
     },
-	{
-        type = "item",
-        name = "neodymium",
-        group = "intermediate-products",
-        icon = "__pbnuclear__/graphics/icons/neodymium-plate.png",
-        subgroup = "rare-earth",
-		default_import_location = "nauvis",
-        order = "n[neodymium]",
-        inventory_move_sound = item_sounds.resource_inventory_move,
-        pick_sound = item_sounds.resource_inventory_pickup,
-        drop_sound = item_sounds.resource_inventory_move,
-        stack_size = 50,
-        weight = 2 * kg
-    },
+	--{
+    --    type = "item",
+    --    name = "neodymium",
+    --    group = "intermediate-products",
+    --    icon = "__pbnuclear__/graphics/icons/neodymium-plate.png",
+    --    subgroup = "rare-earth",
+	--	default_import_location = "nauvis",
+    --    order = "n[neodymium]",
+    --    inventory_move_sound = item_sounds.resource_inventory_move,
+    --    pick_sound = item_sounds.resource_inventory_pickup,
+    --    drop_sound = item_sounds.resource_inventory_move,
+    --    stack_size = 50,
+    --    weight = 2 * kg
+    --},
 	--Foundry excess
 	{
         type = "item",
@@ -3243,7 +3293,7 @@ data:extend(
         type = "item",
         name = "tin",
         group = "intermediate-products",
-        icon = "__base__/graphics/icons/iron-plate.png",
+        icon = "__pbnuclear__/graphics/icons/tin-can.png",
         subgroup = "alloying-element",
 		default_import_location = "nauvis",
         order = "o[tin]",
@@ -3388,6 +3438,20 @@ data:extend(
         stack_size = 50,
         weight = 2 * kg
     },
+	{
+        type = "item",
+        name = "zirconium",
+        group = "intermediate-products",
+        icon = "__base__/graphics/icons/iron-plate.png",
+		subgroup = "alloy",
+		default_import_location = "nauvis",
+        order = "f[brass]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 50,
+        weight = 2 * kg
+    },
 	-- Metalloids / Semiconductors
 	{
         type = "item",
@@ -3403,6 +3467,20 @@ data:extend(
         stack_size = 50,
         weight = 2 * kg
     },
+	--{
+    --    type = "item",
+    --    name = "germanium-ore",
+    --    group = "intermediate-products",
+    --    icon = "__pbnuclear__/graphics/icons/gallium-ore.png",
+    --    subgroup = "chemical",
+	--	default_import_location = "nauvis",
+    --    order = "n[vanadium]",
+    --    inventory_move_sound = item_sounds.resource_inventory_move,
+    --    pick_sound = item_sounds.resource_inventory_pickup,
+    --    drop_sound = item_sounds.resource_inventory_move,
+    --    stack_size = 50,
+    --    weight = 2 * kg
+    --},
 	--{
     --    type = "item",
     --    name = "vanadinite", --Pb5(VO4)3Cl

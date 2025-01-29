@@ -2,8 +2,8 @@ data:extend(
 {{
     type = "item-group",
     name = "periodic-table",
-    order = "a",
-    icon = "__base__/graphics/item-group/logistics.png",
+    order = "h",
+    icon = "__pbnuclear__/graphics/item-group/periodic-table.png",
     icon_size = 128,
   },
   ---Periodic Table
@@ -28,6 +28,30 @@ data:extend(
   {
     type = "item-subgroup",
     name = "row-4",
+    group = "periodic-table",
+    order = "a-t"
+  },
+  {
+    type = "item-subgroup",
+    name = "row-5",
+    group = "periodic-table",
+    order = "a-t"
+  },
+  {
+    type = "item-subgroup",
+    name = "lanthanides",
+    group = "periodic-table",
+    order = "a-t"
+  },
+  {
+    type = "item-subgroup",
+    name = "row-6",
+    group = "periodic-table",
+    order = "a-t"
+  },
+  {
+    type = "item-subgroup",
+    name = "row-7",
     group = "periodic-table",
     order = "a-t"
   },

@@ -593,13 +593,13 @@ data:extend(
 		results = {
 			{type="item", name="scandium", amount=1, probability = 0.01},
 			{type="item", name="yttrium", amount=2, probability = 0.25},
-			{type="item", name="lanthanum", amount=2, probability = 0.25},
-			{type="item", name="cerium", amount=2, probability = 0.25},
+			{type="item", name="lanthanum-plate", amount=2, probability = 0.25},
+			{type="item", name="cerium-plate", amount=2, probability = 0.25},
 			{type="item", name="beryllium-ore", amount=2},
 			{type="item", name="silicon-ore", amount=2},
 			{type="item", name="iron-ore", amount=1},
 			{type="item", name="praesodymium", amount=1, probability = 0.01},
-			{type="item", name="neodymium", amount=2, probability = 0.25},
+			{type="item", name="neodymium-plate", amount=2, probability = 0.25},
 		},
 		allow_productivity = true,
 		enabled = false
@@ -714,5 +714,853 @@ data:extend(
 		},
 		results = {{type="item", name="brass", amount=3}},
 		allow_productivity = true
+	},
+	--{
+	--	type = "recipe",
+	--	name = "electrum",
+	--	enabled = false,
+	--	icon = "__pbnuclear__/graphics/icons/brass-d-plate.png",
+	--	ingredients = {
+	--		{type = "item", name = "silver", amount = 1},
+	--		{type = "item", name = "gold", amount = 1},
+	--	},
+	--	results = {{type="item", name="brass", amount=3}},
+	--	allow_productivity = true
+	--},
+})	
+--Periodic Table
+data:extend(
+{	
+	{
+		type = "recipe",
+		name = "hydrogen-element",
+		category = "crafting-with-fluid",
+		enabled = false,
+		icon = "__pbnuclear__/graphics/icons/fluid/hydrogen-atom.png",
+		subgroup = "row-1",
+		order = "a[hydrogen]",
+		ingredients = {
+			{type = "fluid", name = "hydrogen", amount = 1},
+		},
+		results = {{type="fluid", name="hydrogen", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "helium-element",
+		category = "crafting-with-fluid",
+		enabled = false,
+		icon = "__pbnuclear__/graphics/icons/fluid/helium-atom-large.png",
+		subgroup = "row-1",
+		order = "b[helium]",
+		ingredients = {
+			{type = "fluid", name = "helium", amount = 1},
+		},
+		results = {{type="fluid", name="helium", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "lithium-element",
+		enabled = false,
+		icon = "__space-age__/graphics/icons/lithium-plate.png",
+		subgroup = "row-2",
+		order = "a[lithium]",
+		ingredients = {
+			{type = "item", name = "lithium-plate", amount = 1},
+		},
+		results = {{type="item", name="lithium-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "beryllium-element",
+		enabled = false,
+		icon = "__outer_moons__/graphics/icons/beryllium-plate.png",
+		subgroup = "row-2",
+		order = "b[beryllium]",
+		ingredients = {
+			{type = "item", name = "beryllium-plate", amount = 1},
+		},
+		results = {{type="item", name="beryllium-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "boron-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/salt.png",
+		subgroup = "row-2",
+		order = "b[boron]",
+		ingredients = {
+			{type = "item", name = "boric-acid", amount = 1},
+		},
+		results = {{type="item", name="boric-acid", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "carbon-element",
+		enabled = false,
+		icon = "__space-age__/graphics/icons/carbon.png",
+		subgroup = "row-2",
+		order = "c[carbon]",
+		ingredients = {
+			{type = "item", name = "carbon", amount = 1},
+		},
+		results = {{type="item", name="carbon", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "nitrogen-element",
+		category = "crafting-with-fluid",
+		enabled = false,
+		icon = "__outer_moons__/graphics/icons/fluid/nitrogen.png",
+		subgroup = "row-2",
+		order = "d[nitrogen]",
+		ingredients = {
+			{type = "fluid", name = "nitrogen", amount = 1},
+		},
+		results = {{type="fluid", name="nitrogen", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "oxygen-element",
+		category = "crafting-with-fluid",
+		enabled = false,
+		icon = "__outer_moons__/graphics/icons/fluid/oxygen.png",
+		subgroup = "row-2",
+		order = "e[oxygen]",
+		ingredients = {
+			{type = "fluid", name = "oxygen", amount = 1},
+		},
+		results = {{type="fluid", name="oxygen", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "fluorine-element",
+		category = "crafting-with-fluid",
+		enabled = false,
+		icon = "__outer_moons__/graphics/icons/fluid/fluorine.png",
+		subgroup = "row-2",
+		order = "f[fluorine]",
+		ingredients = {
+			{type = "fluid", name = "fluorine", amount = 1},
+		},
+		results = {{type="fluid", name="fluorine", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "neon-element",
+		category = "crafting-with-fluid",
+		enabled = false,
+		icon = "__pbnuclear__/graphics/icons/fluid/neon-pubchem.png",
+		subgroup = "row-2",
+		order = "f[neon]",
+		ingredients = {
+			{type = "fluid", name = "neon", amount = 1},
+		},
+		results = {{type="fluid", name="neon", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "sodium-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/salt.png",
+		subgroup = "row-3",
+		order = "a[sodium]",
+		ingredients = {
+			{type = "item", name = "salt", amount = 1},
+		},
+		results = {{type="item", name="salt", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "magnesium-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/magnesium-plate.png",
+		subgroup = "row-3",
+		order = "b[magnesium]",
+		ingredients = {
+			{type = "item", name = "magnesium-plate", amount = 1},
+		},
+		results = {{type="item", name="magnesium-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "aluminium-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/aluminum-plate.png",
+		subgroup = "row-3",
+		order = "c[aluminium]",
+		ingredients = {
+			{type = "item", name = "aluminum-plate", amount = 1},
+		},
+		results = {{type="item", name="aluminum-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "silicon-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/silicon-wafer.png",
+		subgroup = "row-3",
+		order = "d[silicon]",
+		ingredients = {
+			{type = "item", name = "silicon-wafer", amount = 1},
+		},
+		results = {{type="item", name="silicon-wafer", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "phosphate-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/phosphate.png",
+		subgroup = "row-3",
+		order = "e[phosphate]",
+		ingredients = {
+			{type = "item", name = "phosphate", amount = 1},
+		},
+		results = {{type="item", name="phosphate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "sulfur-element",
+		enabled = false,
+        icon = "__base__/graphics/icons/sulfur.png",
+		subgroup = "row-3",
+		order = "f[sulfur]",
+		ingredients = {
+			{type = "item", name = "sulfur", amount = 1},
+		},
+		results = {{type="item", name="sulfur", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "chlorine-element",
+		category = "crafting-with-fluid",
+		enabled = false,
+		icon = "__outer_moons__/graphics/icons/fluid/chlorine.png",
+		subgroup = "row-3",
+		order = "g[chlorine]",
+		ingredients = {
+			{type = "fluid", name = "chlorine", amount = 1},
+		},
+		results = {{type="fluid", name="chlorine", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "argon-element",
+		category = "crafting-with-fluid",
+		enabled = false,
+		icon = "__pbnuclear__/graphics/icons/fluid/argon-pubchem.png",
+		subgroup = "row-3",
+		order = "h[argon]",
+		ingredients = {
+			{type = "fluid", name = "argon", amount = 1},
+		},
+		results = {{type="fluid", name="argon", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "potassium-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/potassium-salt.png",
+		subgroup = "row-4",
+		order = "a[potassium]",
+		ingredients = {
+			{type = "item", name = "potassium-salt", amount = 1},
+		},
+		results = {{type="item", name="potassium-salt", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "calcium-element",
+		enabled = false,
+        icon = "__space-age__/graphics/icons/calcite.png",
+		subgroup = "row-4",
+		order = "b[calcium]",
+		ingredients = {
+			{type = "item", name = "calcite", amount = 1},
+		},
+		results = {{type="item", name="calcite", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "scandium-element",
+		enabled = false,
+        icon = "__base__/graphics/icons/iron-plate.png",
+		subgroup = "row-4",
+		order = "b[scandium]",
+		ingredients = {
+			{type = "item", name = "scandium", amount = 1},
+		},
+		results = {{type="item", name="scandium", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "titanium-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/titanium-plate.png",
+		subgroup = "row-4",
+		order = "b[titanium]",
+		ingredients = {
+			{type = "item", name = "titanium-plate", amount = 1},
+		},
+		results = {{type="item", name="titanium-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "vanadium-element",
+		enabled = false,
+        icon = "__base__/graphics/icons/iron-plate.png",
+		subgroup = "row-4",
+		order = "b[vanadium]",
+		ingredients = {
+			{type = "item", name = "vanadium", amount = 1},
+		},
+		results = {{type="item", name="vanadium", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "chromium-element",
+		enabled = false,
+        icon = "__base__/graphics/icons/iron-plate.png",
+		subgroup = "row-4",
+		order = "c[chromium]",
+		ingredients = {
+			{type = "item", name = "chromium", amount = 1},
+		},
+		results = {{type="item", name="chromium", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "manganese-element",
+		enabled = false,
+        icon = "__base__/graphics/icons/iron-plate.png",
+		subgroup = "row-4",
+		order = "c[manganese]",
+		ingredients = {
+			{type = "item", name = "manganese", amount = 1},
+		},
+		results = {{type="item", name="manganese", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "iron-element",
+		enabled = false,
+        icon = "__base__/graphics/icons/iron-plate.png",
+		subgroup = "row-4",
+		order = "d[iron]",
+		ingredients = {
+			{type = "item", name = "iron-plate", amount = 1},
+		},
+		results = {{type="item", name="iron-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "cobalt-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/cobalt-plate.png",
+		subgroup = "row-4",
+		order = "e[cobalt]",
+		ingredients = {
+			{type = "item", name = "cobalt-plate", amount = 1},
+		},
+		results = {{type="item", name="cobalt-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "nickel-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/nickel-plate.png",
+		subgroup = "row-4",
+		order = "e[nickel]",
+		ingredients = {
+			{type = "item", name = "nickel-plate", amount = 1},
+		},
+		results = {{type="item", name="nickel-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "copper-element",
+		enabled = false,
+        icon = "__base__/graphics/icons/copper-plate.png",
+		subgroup = "row-4",
+		order = "f[copper]",
+		ingredients = {
+			{type = "item", name = "copper-plate", amount = 1},
+		},
+		results = {{type="item", name="copper-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "zinc-element",
+		enabled = false,
+        icon = "__base__/graphics/icons/iron-plate.png",
+		subgroup = "row-4",
+		order = "f[zinc]",
+		ingredients = {
+			{type = "item", name = "zinc", amount = 1},
+		},
+		results = {{type="item", name="zinc", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "gallium-element",
+		enabled = false,
+        icon = "__pbnuclear__/graphics/icons/gallium-ore.png",
+		subgroup = "row-4",
+		order = "g[gallium]",
+		ingredients = {
+			{type = "item", name = "gallium-ore", amount = 1},
+		},
+		results = {{type="item", name="gallium-ore", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "germanium-element",
+		enabled = false,
+        icon = "__pbnuclear__/graphics/icons/gallium-ore.png",
+		subgroup = "row-4",
+		order = "g[germanium]",
+		ingredients = {
+			{type = "item", name = "gallium-ore", amount = 1},
+		},
+		results = {{type="item", name="gallium-ore", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "arsenic-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/arsenic.png",
+		subgroup = "row-4",
+		order = "h[arsenic]",
+		ingredients = {
+			{type = "item", name = "arsenic", amount = 1},
+		},
+		results = {{type="item", name="arsenic", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "selenium-element",
+		enabled = false,
+        icon = "__pbnuclear__/graphics/icons/gallium-ore.png",
+		subgroup = "row-4",
+		order = "h[selenium]",
+		ingredients = {
+			{type = "item", name = "gallium-ore", amount = 1},
+		},
+		results = {{type="item", name="gallium-ore", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "bromine-element",
+		category = "crafting-with-fluid",
+		enabled = false,
+		icon = "__pbnuclear__/graphics/icons/fluid/bromine.png",
+		subgroup = "row-4",
+		order = "i[bromine]",
+		ingredients = {
+			{type = "fluid", name = "bromine", amount = 1},
+		},
+		results = {{type="fluid", name="bromine", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "krypton-element",
+		category = "crafting-with-fluid",
+		enabled = false,
+		icon = "__pbnuclear__/graphics/icons/fluid/krypton-pubchem.png",
+		subgroup = "row-4",
+		order = "i[krypton]",
+		ingredients = {
+			{type = "fluid", name = "krypton", amount = 1},
+		},
+		results = {{type="fluid", name="krypton", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "yttrium-element",
+		enabled = false,
+        icon = "__base__/graphics/icons/iron-plate.png",
+		subgroup = "row-5",
+		order = "c[yttrium]",
+		ingredients = {
+			{type = "item", name = "yttrium", amount = 1},
+		},
+		results = {{type="item", name="yttrium", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "zirconium-element",
+		enabled = false,
+        icon = "__base__/graphics/icons/iron-plate.png",
+		subgroup = "row-5",
+		order = "c[zirconium]",
+		ingredients = {
+			{type = "item", name = "zirconium", amount = 1},
+		},
+		results = {{type="item", name="zirconium", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "silver-element",
+		enabled = false,
+        icon = "__pbnuclear__/graphics/icons/silver-bar.png",
+		subgroup = "row-5",
+		order = "d[silver]",
+		ingredients = {
+			{type = "item", name = "silver", amount = 1},
+		},
+		results = {{type="item", name="silver", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "indium-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/indium-wafer.png",
+		subgroup = "row-5",
+		order = "e[indium]",
+		ingredients = {
+			{type = "item", name = "indium-wafer", amount = 1},
+		},
+		results = {{type="item", name="indium-wafer", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "tin-element",
+		enabled = false,
+        icon = "__pbnuclear__/graphics/icons/tin-can.png",
+		subgroup = "row-5",
+		order = "f[tin]",
+		ingredients = {
+			{type = "item", name = "tin", amount = 1},
+		},
+		results = {{type="item", name="tin", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "antimony-element",
+		enabled = false,
+        icon = "__base__/graphics/icons/iron-plate.png",
+		subgroup = "row-5",
+		order = "g[antimony]",
+		ingredients = {
+			{type = "item", name = "iron-plate", amount = 1},
+		},
+		results = {{type="item", name="iron-plate", amount=1}},
+		allow_productivity = false
+	},
+	--{
+	--	type = "recipe",
+	--	name = "tellurium-element",
+	--	enabled = false,
+	--	subgroup = "row-5",
+	--	order = "f[tellurium]",
+	--	ingredients = {
+	--		{type = "item", name = "gallium-ore", amount = 1},
+	--	},
+	--	results = {{type="item", name="gallium-ore", amount=1}},
+	--	allow_productivity = false
+	--},
+	{
+		type = "recipe",
+		name = "iodine-element",
+		category = "crafting-with-fluid",
+		enabled = false,
+		icon = "__outer_moons__/graphics/icons/fluid/iodine.png",
+		subgroup = "row-5",
+		order = "g[krypton]",
+		ingredients = {
+			{type = "fluid", name = "iodine", amount = 1},
+		},
+		results = {{type="fluid", name="iodine", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "iodine-element",
+		category = "crafting-with-fluid",
+		enabled = false,
+		icon = "__outer_moons__/graphics/icons/fluid/iodine.png",
+		subgroup = "row-5",
+		order = "g[krypton]",
+		ingredients = {
+			{type = "fluid", name = "iodine", amount = 1},
+		},
+		results = {{type="fluid", name="iodine", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "xenon-element",
+		category = "crafting-with-fluid",
+		enabled = false,
+		icon = "__pbnuclear__/graphics/icons/fluid/xenon-pubchem.png",
+		subgroup = "row-5",
+		order = "g[krypton]",
+		ingredients = {
+			{type = "fluid", name = "xenon", amount = 1},
+		},
+		results = {{type="fluid", name="xenon", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "lanthanum-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/lanthanum-plate.png",
+		subgroup = "row-6",
+		order = "a[lanthanum]",
+		ingredients = {
+			{type = "item", name = "lanthanum-plate", amount = 1},
+		},
+		results = {{type="item", name="lanthanum-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "lanthanum-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/lanthanum-plate.png",
+		subgroup = "row-6",
+		order = "a[lanthanum]",
+		ingredients = {
+			{type = "item", name = "lanthanum-plate", amount = 1},
+		},
+		results = {{type="item", name="lanthanum-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "cerium-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/cerium-plate.png",
+		subgroup = "row-6",
+		order = "a[cerium]",
+		ingredients = {
+			{type = "item", name = "cerium-plate", amount = 1},
+		},
+		results = {{type="item", name="cerium-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "neodymium-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/neodymium-plate.png",
+		subgroup = "row-6",
+		order = "a[neodymium]",
+		ingredients = {
+			{type = "item", name = "neodymium-plate", amount = 1},
+		},
+		results = {{type="item", name="neodymium-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "holmium-element",
+		enabled = false,
+        icon = "__space-age__/graphics/icons/holmium-plate.png",
+		subgroup = "row-6",
+		order = "b[holmium]",
+		ingredients = {
+			{type = "item", name = "holmium-plate", amount = 1},
+		},
+		results = {{type="item", name="holmium-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "tungsten-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/tungsten-plate.png",
+		subgroup = "row-6",
+		order = "b[tungsten]",
+		ingredients = {
+			{type = "item", name = "tungsten-plate", amount = 1},
+		},
+		results = {{type="item", name="tungsten-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "osmium-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/osmium-plate.png",
+		subgroup = "row-6",
+		order = "c[osmium]",
+		ingredients = {
+			{type = "item", name = "osmium-plate", amount = 1},
+		},
+		results = {{type="item", name="osmium-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "iridium-element",
+		enabled = false,
+        icon = "__outer_moons__/graphics/icons/iridium-plate.png",
+		subgroup = "row-6",
+		order = "c[yridium]",
+		ingredients = {
+			{type = "item", name = "iridium-plate", amount = 1},
+		},
+		results = {{type="item", name="iridium-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "platinum-element",
+		enabled = false,
+        icon = "__pbnuclear__/graphics/icons/platinum-bar.png",
+		subgroup = "row-6",
+		order = "c[zplatinum]",
+		ingredients = {
+			{type = "item", name = "gold", amount = 1},
+		},
+		results = {{type="item", name="gold", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "gold-element",
+		enabled = false,
+        icon = "__pbnuclear__/graphics/icons/gold-bar.png",
+		subgroup = "row-6",
+		order = "d[gold]",
+		ingredients = {
+			{type = "item", name = "gold", amount = 1},
+		},
+		results = {{type="item", name="gold", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "mercury-element",
+		category = "crafting-with-fluid",
+		enabled = false,
+		icon = "__pbnuclear__/graphics/icons/fluid/mercury.png",
+		subgroup = "row-6",
+		order = "d[mercury]",
+		ingredients = {
+			{type = "fluid", name = "mercury", amount = 1},
+		},
+		results = {{type="fluid", name="mercury", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "lead-element",
+		enabled = false,
+		icon = "__outer_moons__/graphics/icons/lead-plate.png",
+		subgroup = "row-6",
+		order = "e[lead]",
+		ingredients = {
+			{type = "item", name = "lead-plate", amount = 1},
+		},
+		results = {{type="item", name="lead-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "bismuth-element",
+		enabled = false,
+		icon = "__pbnuclear__/graphics/icons/bismuth-plate.png",
+		subgroup = "row-6",
+		order = "f[bismuth]",
+		ingredients = {
+			{type = "item", name = "bismuth-plate", amount = 1},
+		},
+		results = {{type="item", name="bismuth-plate", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "thorium-element",
+		enabled = false,
+		icon = "__pbnuclear__/graphics/icons/thorium-232.png",
+		subgroup = "row-7",
+		order = "a[thorium]",
+		ingredients = {
+			{type = "item", name = "uranium-238", amount = 1},
+		},
+		results = {{type="item", name="uranium-238", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "uranium-element",
+		enabled = false,
+		icon = "__base__/graphics/icons/uranium-238.png",
+		subgroup = "row-7",
+		order = "b[uranium]",
+		ingredients = {
+			{type = "item", name = "uranium-238", amount = 1},
+		},
+		results = {{type="item", name="uranium-238", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "neptunium-element",
+		enabled = false,
+		icon = "__pbnuclear__/graphics/icons/neptunium-237.png",
+		subgroup = "row-7",
+		order = "c[neptunium]",
+		ingredients = {
+			{type = "item", name = "uranium-238", amount = 1},
+		},
+		results = {{type="item", name="uranium-238", amount=1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "plutonium-element",
+		enabled = false,
+		icon = "__outer_moons__/graphics/icons/plutonium-239.png",
+		subgroup = "row-7",
+		order = "d[plutonium]",
+		ingredients = {
+			{type = "item", name = "plutonium-239", amount = 1},
+		},
+		results = {{type="item", name="plutonium-239", amount=1}},
+		allow_productivity = false
 	},
 })
