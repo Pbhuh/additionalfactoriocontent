@@ -98,7 +98,7 @@ data:extend({
 		{
 		  name = "pyromorphite-ore",
 		  order = "b",
-		  map_color = {r = 69/256, g = 55/256, b = 75/256, a = 1.000},
+		  map_color = {r = 252/256, g = 174/256, b = 30/256, a = 1.000},
 		  minable =
 		  {
 			  mining_particle = "stone-particle",
@@ -107,7 +107,7 @@ data:extend({
 		  },
 		  walking_sound = sounds.ore,
 		  driving_sound = stone_driving_sound,
-		  mining_visualisation_tint = {r = 69/256, g = 55/256, b = 75/256, a = 1.000},
+		  mining_visualisation_tint = {r = 252/256, g = 174/256, b = 30/256, a = 1.000},
 		  factoriopedia_simulation = simulations.factoriopedia_lead_ore,
 		},
 		{

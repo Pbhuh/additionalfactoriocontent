@@ -1011,11 +1011,11 @@ data:extend(
     type = "fluid",
     name = "bromine",
     icon = "__pbnuclear__/graphics/icons/fluid/bromine.png",
-    default_temperature = 25,
-	gas_temperature = -34,
+    default_temperature = 25, --
+	gas_temperature = -34, --
     heat_capacity = "0.1kJ",
-    base_color = {0, 0.79, 0},
-    flow_color = {0, 0.84, 0},
+    base_color = {0, 0.79, 0}, --
+    flow_color = {0, 0.84, 0}, --
   },
   {
     type = "fluid",
@@ -1024,8 +1024,19 @@ data:extend(
     default_temperature = 25,
     heat_capacity = "0.01kJ",
     icon = "__pbnuclear__/graphics/icons/fluid/mercury.png",
-    base_color = {0.95, 0.95, 0.95},
-    flow_color = {0.9, 0.9, 0.9},
-    gas_temperature = -108,
+    base_color = {0.95, 0.95, 0.95}, --
+    flow_color = {0.9, 0.9, 0.9}, --
+    gas_temperature = -108, --
+  }, 
+  {
+    type = "fluid",
+    name = "latex",
+    subgroup = "fluid",
+    default_temperature = 25,
+    heat_capacity = "0.01kJ",
+    icon = "__pbnuclear__/graphics/icons/fluid/latex.png",
+    base_color = {0.95, 0.95, 0.95}, --
+    flow_color = {0.9, 0.9, 0.9}, --
+    gas_temperature = -108, --
   }, 
 })

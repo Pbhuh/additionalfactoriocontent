@@ -592,13 +592,13 @@ data:extend(
 		ingredients = {{type = "item", name = "gadolinite-ore", amount = 1}},
 		results = {
 			{type="item", name="scandium", amount=1, probability = 0.01},
-			{type="item", name="yttrium", amount=2, probability = 0.25},
+			{type="item", name="yttrium-plate", amount=2, probability = 0.25},
 			{type="item", name="lanthanum-plate", amount=2, probability = 0.25},
 			{type="item", name="cerium-plate", amount=2, probability = 0.25},
 			{type="item", name="beryllium-ore", amount=2},
 			{type="item", name="silicon-ore", amount=2},
 			{type="item", name="iron-ore", amount=1},
-			{type="item", name="praesodymium", amount=1, probability = 0.01},
+			{type="item", name="praesodymium-plate", amount=1, probability = 0.01},
 			{type="item", name="neodymium-plate", amount=2, probability = 0.25},
 		},
 		allow_productivity = true,
@@ -653,7 +653,7 @@ data:extend(
 		results =
 		{
 		  {type = "item", name = "alumina", amount = 3},
-		  {type = "item", name = "gallium-ore", amount = 1, probability = 0.1},
+		  {type = "item", name = "gallium-metal", amount = 1, probability = 0.1},
 		  {type = "item", name = "vanadium", amount = 1, probability = 0.01},
 		},
 		allow_productivity = true,
@@ -921,11 +921,11 @@ data:extend(
 	},
 	{
 		type = "recipe",
-		name = "phosphate-element",
+		name = "phosphorus-element",
 		enabled = false,
         icon = "__outer_moons__/graphics/icons/phosphate.png",
 		subgroup = "row-3",
-		order = "e[phosphate]",
+		order = "e[phosphorus]",
 		ingredients = {
 			{type = "item", name = "phosphate", amount = 1},
 		},
@@ -1133,26 +1133,26 @@ data:extend(
 		type = "recipe",
 		name = "gallium-element",
 		enabled = false,
-        icon = "__pbnuclear__/graphics/icons/gallium-ore.png",
+        icon = "__pbnuclear__/graphics/icons/gallium-metal.png",
 		subgroup = "row-4",
 		order = "g[gallium]",
 		ingredients = {
-			{type = "item", name = "gallium-ore", amount = 1},
+			{type = "item", name = "gallium-metal", amount = 1},
 		},
-		results = {{type="item", name="gallium-ore", amount=1}},
+		results = {{type="item", name="gallium-metal", amount=1}},
 		allow_productivity = false
 	},
 	{
 		type = "recipe",
 		name = "germanium-element",
 		enabled = false,
-        icon = "__pbnuclear__/graphics/icons/gallium-ore.png",
+        icon = "__pbnuclear__/graphics/icons/germanium-metal.png",
 		subgroup = "row-4",
 		order = "g[germanium]",
 		ingredients = {
-			{type = "item", name = "gallium-ore", amount = 1},
+			{type = "item", name = "germanium-metal", amount = 1},
 		},
-		results = {{type="item", name="gallium-ore", amount=1}},
+		results = {{type="item", name="germanium-metal", amount=1}},
 		allow_productivity = false
 	},
 	{
@@ -1172,13 +1172,13 @@ data:extend(
 		type = "recipe",
 		name = "selenium-element",
 		enabled = false,
-        icon = "__pbnuclear__/graphics/icons/gallium-ore.png",
+        icon = "__base__/graphics/icons/iron-plate.png",
 		subgroup = "row-4",
 		order = "h[selenium]",
 		ingredients = {
-			{type = "item", name = "gallium-ore", amount = 1},
+			{type = "item", name = "iron-plate", amount = 1},
 		},
-		results = {{type="item", name="gallium-ore", amount=1}},
+		results = {{type="item", name="iron-plate", amount=1}},
 		allow_productivity = false
 	},
 	{
@@ -1213,26 +1213,26 @@ data:extend(
 		type = "recipe",
 		name = "yttrium-element",
 		enabled = false,
-        icon = "__base__/graphics/icons/iron-plate.png",
+        icon = "__pbnuclear__/graphics/icons/yttrium-plate.png",
 		subgroup = "row-5",
 		order = "c[yttrium]",
 		ingredients = {
-			{type = "item", name = "yttrium", amount = 1},
+			{type = "item", name = "yttrium-plate", amount = 1},
 		},
-		results = {{type="item", name="yttrium", amount=1}},
+		results = {{type="item", name="yttrium-plate", amount=1}},
 		allow_productivity = false
 	},
 	{
 		type = "recipe",
 		name = "zirconium-element",
 		enabled = false,
-        icon = "__base__/graphics/icons/iron-plate.png",
+        icon = "__pbnuclear__/graphics/icons/zirconium-metal.png",
 		subgroup = "row-5",
 		order = "c[zirconium]",
 		ingredients = {
-			{type = "item", name = "zirconium", amount = 1},
+			{type = "item", name = "zirconium-metal", amount = 1},
 		},
-		results = {{type="item", name="zirconium", amount=1}},
+		results = {{type="item", name="zirconium-metal", amount=1}},
 		allow_productivity = false
 	},
 	{
@@ -1294,9 +1294,9 @@ data:extend(
 	--	subgroup = "row-5",
 	--	order = "f[tellurium]",
 	--	ingredients = {
-	--		{type = "item", name = "gallium-ore", amount = 1},
+	--		{type = "item", name = "germanium-metal", amount = 1},
 	--	},
-	--	results = {{type="item", name="gallium-ore", amount=1}},
+	--	results = {{type="item", name="germanium-metal", amount=1}},
 	--	allow_productivity = false
 	--},
 	{
